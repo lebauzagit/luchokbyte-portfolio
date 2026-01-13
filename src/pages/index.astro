@@ -25,22 +25,25 @@ const projects = (await getCollection('work')).sort(
 	<div class="stack gap-20 lg:gap-48">
 		<!-- Smooth scrolling styles -->
 		<script>
-			document.addEventListener('DOMContentLoaded', function() {
+			document.addEventListener('DOMContentLoaded', function () {
 				// Handle smooth scrolling for anchor links
-				document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-					anchor.addEventListener('click', function (this: HTMLAnchorElement, e) {
-						e.preventDefault();
-						const href = this.getAttribute('href');
-						if (href) {
-							const target = document.querySelector(href);
-							if (target) {
-								target.scrollIntoView({
-									behavior: 'smooth',
-									block: 'start'
-								});
+				document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+					anchor.addEventListener(
+						'click',
+						function (this: HTMLAnchorElement, e) {
+							e.preventDefault();
+							const href = this.getAttribute('href');
+							if (href) {
+								const target = document.querySelector(href);
+								if (target) {
+									target.scrollIntoView({
+										behavior: 'smooth',
+										block: 'start',
+									});
+								}
 							}
-						}
-					});
+						},
+					);
 				});
 
 				// Handle URL hash on page load
@@ -50,7 +53,7 @@ const projects = (await getCollection('work')).sort(
 						setTimeout(() => {
 							target.scrollIntoView({
 								behavior: 'smooth',
-								block: 'start'
+								block: 'start',
 							});
 						}, 100);
 					}
@@ -94,8 +97,6 @@ const projects = (await getCollection('work')).sort(
 					tagline="See my most recent projects below to get an idea of my past experience."
 				/>
 				<section class="section with-background with-cta">
-
-
 					<div class="gallery">
 						<Grid variant="offset">
 							{
@@ -130,21 +131,26 @@ const projects = (await getCollection('work')).sort(
 					<h2 class="section-title">Background</h2>
 					<div class="content">
 						<p>
-							Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy. Sed
-							do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-							id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-							pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+							Lorem ipsum dolor sit amet, <a href="https://astro.build/"
+								>Astro</a
+							> makes people happy. Sed do eiusmod tempor incididunt ut labore et
+							dolore magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum
+							vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla pharetra
+							diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus
+							in ornare.
 						</p>
 						<p>
-							Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-							natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-							condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-							quam elementum pulvinar etiam non.
+							Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget
+							gravida cum sociis natoque penatibus. Cras fermentum odio eu
+							feugiat pretium nibh. Proin nibh nisl condimentum id venenatis.
+							Porta nibh venenatis cras sed felis eget velit. Id diam vel quam
+							elementum pulvinar etiam non.
 						</p>
 						<p>
-							Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-							eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-							Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
+							Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut
+							sem viverra aliquet eget sit amet. Lacus luctus accumsan tortor
+							posuere ac ut consequat semper viverra. Viverra accumsan in nisl
+							nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
 							pretium fusce.
 						</p>
 					</div>
@@ -167,11 +173,7 @@ const projects = (await getCollection('work')).sort(
 		<!-- Contact Section -->
 		<section id="contact" class="wrapper stack gap-20 lg:gap-48">
 			<main class="contact">
-				<Hero
-					title="Get in Touch"
-					tagline="Feel free to reach out if you'd like to connect or work together."
-				/>
-			<ContactForm />
+				<ContactForm />
 			</main>
 		</section>
 	</div>
@@ -183,12 +185,14 @@ const projects = (await getCollection('work')).sort(
 	}
 
 	/* Offset for fixed navbar when scrolling to sections */
-	section[id], div[id] {
+	section[id],
+	div[id] {
 		scroll-margin-top: 5rem;
 	}
 
 	@media (min-width: 50em) {
-		section[id], div[id] {
+		section[id],
+		div[id] {
 			scroll-margin-top: 5rem;
 		}
 	}
