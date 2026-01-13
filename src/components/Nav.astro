@@ -142,6 +142,85 @@ const isCurrentPage = (href: string) => {
 		}
 	}
 	customElements.define('menu-button', MenuButton);
+
+	// Track active section on scroll
+	document.addEventListener('DOMContentLoaded', () => {
+		const sections = document.querySelectorAll('section[id]');
+		const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+		if (sections.length === 0 || navLinks.length === 0) return;
+
+		// Remove focus from links after clicking to prevent hover state
+		navLinks.forEach((link) => {
+			link.addEventListener('click', (e) => {
+				setTimeout(() => {
+					(e.target as HTMLElement).blur();
+				}, 100);
+			});
+		});
+
+		const observerOptions = {
+			root: null,
+			rootMargin: '-20% 0px -70% 0px', // Trigger when section is 20% from top
+			threshold: 0
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const id = entry.target.getAttribute('id');
+					
+					// Remove active state from all links
+					navLinks.forEach((link) => {
+						link.removeAttribute('aria-current');
+						link.classList.remove('active');
+						// Force style recalculation
+						(link as HTMLElement).style.removeProperty('color');
+						(link as HTMLElement).style.removeProperty('background-color');
+					});
+
+					// Add active state to the corresponding link
+					const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+					if (activeLink) {
+						activeLink.setAttribute('aria-current', 'page');
+					}
+				}
+			});
+		}, observerOptions);
+
+		// Observe all sections
+		sections.forEach((section) => observer.observe(section));
+
+		// Set initial active state based on scroll position or hash
+		const setInitialActive = () => {
+			// Clean all links first
+			navLinks.forEach(link => {
+				link.removeAttribute('aria-current');
+				link.classList.remove('active');
+				(link as HTMLElement).style.removeProperty('color');
+				(link as HTMLElement).style.removeProperty('background-color');
+			});
+
+			if (window.location.hash) {
+				const targetId = window.location.hash.substring(1);
+				const activeLink = document.querySelector(`nav a[href="#${targetId}"]`);
+				if (activeLink) {
+					activeLink.setAttribute('aria-current', 'page');
+				}
+			} else {
+				// Default to first link (home)
+				const firstLink = navLinks[0] as HTMLElement;
+				if (firstLink) {
+					firstLink.setAttribute('aria-current', 'page');
+				}
+			}
+		};
+
+		setInitialActive();
+
+		// Update active state when hash changes
+		window.addEventListener('hashchange', setInitialActive);
+	});
 </script>
 
 <style>
@@ -240,7 +319,15 @@ const isCurrentPage = (href: string) => {
 		text-decoration: none;
 	}
 
+	.link:visited {
+		color: var(--gray-300);
+	}
+
 	.link[aria-current] {
+		color: var(--gray-0);
+	}
+
+	.link[aria-current]:visited {
 		color: var(--gray-0);
 	}
 
@@ -332,6 +419,10 @@ const isCurrentPage = (href: string) => {
 				background-color var(--theme-transition);
 		}
 
+		.link:visited {
+			color: var(--gray-300);
+		}
+
 		.link:hover,
 		.link:focus {
 			color: var(--gray-100);
@@ -339,6 +430,11 @@ const isCurrentPage = (href: string) => {
 		}
 
 		.link[aria-current='page'] {
+			color: var(--accent-text-over);
+			background-color: var(--accent-regular);
+		}
+
+		.link[aria-current='page']:visited {
 			color: var(--accent-text-over);
 			background-color: var(--accent-regular);
 		}
