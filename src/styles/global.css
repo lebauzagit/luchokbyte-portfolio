@@ -134,12 +134,12 @@ body {
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.5;
-	padding-top: 6rem;
+	padding-top: 5rem;
 }
 
 @media (min-width: 50em) {
 	body {
-		padding-top: 8rem;
+		padding-top: 5rem;
 	}
 }
 
