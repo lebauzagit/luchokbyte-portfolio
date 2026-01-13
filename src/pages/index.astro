@@ -62,8 +62,8 @@ const projects = (await getCollection('work')).sort(
 		<section id="home" class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
+					title="Hello, my name is Luis Enrique Bauza, but friend call me LoloKb."
+					tagline="I am a Creative Developer who is currently based in North Bergen, New Jersey."
 					align="start"
 				>
 					<div class="roles">
@@ -74,7 +74,7 @@ const projects = (await getCollection('work')).sort(
 				</Hero>
 
 				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+					alt="Luis Enrique Bauza smiling in a blue soot"
 					width="480"
 					height="620"
 					src="/assets/portrait.jpg"
@@ -84,6 +84,31 @@ const projects = (await getCollection('work')).sort(
 			<div id="skills">
 				<Skills />
 			</div>
+		</section>
+
+		<!-- Work Section -->
+		<section id="projects" class="wrapper stack gap-20">
+			<main class="projects">
+				<Hero
+					title="Projects"
+					tagline="See my most recent projects below to get an idea of my past experience."
+				/>
+				<section class="section with-background with-cta">
+
+
+					<div class="gallery">
+						<Grid variant="offset">
+							{
+								projects.map((project) => (
+									<li>
+										<PortfolioPreview project={project} />
+									</li>
+								))
+							}
+						</Grid>
+					</div>
+				</section>
+			</main>
 		</section>
 
 		<!-- About Section -->
@@ -97,7 +122,7 @@ const projects = (await getCollection('work')).sort(
 						width="1553"
 						height="873"
 						src="/assets/at-work.jpg"
-						alt="Jeanine White at work with a colleague"
+						alt="Luis Enrique Bauza at work with a colleague"
 					/>
 				</Hero>
 
@@ -139,62 +164,16 @@ const projects = (await getCollection('work')).sort(
 			</main>
 		</section>
 
-		<!-- Work Section -->
-		<section id="projects" class="wrapper stack gap-20 lg:gap-48">
-			<main class="stack gap-8">
-				<Hero
-					title="My Work"
-					tagline="See my most recent projects below to get an idea of my past experience."
-					align="start"
-				/>
-				<section class="section with-background with-cta">
-					<header class="section-header stack gap-2 lg:gap-4">
-						<h3>Portfolio</h3>
-						<p>Take a look below at some of my featured work for clients from the past few years.</p>
-					</header>
-
-					<div class="gallery">
-						<Grid variant="offset">
-							{
-								projects.map((project) => (
-									<li>
-										<PortfolioPreview project={project} />
-									</li>
-								))
-							}
-						</Grid>
-					</div>
-				</section>
-
-				<!-- <section class="section with-background bg-variant">
-					<header class="section-header stack gap-2 lg:gap-4">
-						<h3>Mentions</h3>
-						<p>
-							I have been fortunate enough to receive praise for my work in several publications. Take
-							a look below to learn more.
-						</p>
-					</header>
-
-					<div class="gallery">
-						<Grid variant="small">
-							{
-								['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-									<li class="mention-card">
-										<p>{brand}</p>
-									</li>
-								))
-							}
-						</Grid>
-					</div>
-				</section> -->
-			</main>
-		</section>
-
 		<!-- Contact Section -->
 		<section id="contact" class="wrapper stack gap-20 lg:gap-48">
+			<main class="contact">
+				<Hero
+					title="Get in Touch"
+					tagline="Feel free to reach out if you'd like to connect or work together."
+				/>
 			<ContactForm />
+			</main>
 		</section>
-
 	</div>
 </BaseLayout>
 
