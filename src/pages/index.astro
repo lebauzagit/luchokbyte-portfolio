@@ -1,9 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 // Component Imports
-import CallToAction from '../components/CallToAction.astro';
 // Page section components
-import ContactCTA from '../components/ContactCTA.astro';
+import ContactForm from '../components/ContactForm.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
@@ -25,7 +24,6 @@ const projects = (await getCollection('work')).sort(
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<!-- Smooth scrolling styles -->
-		<!-- Smooth scrolling script -->
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
 				// Handle smooth scrolling for anchor links
@@ -168,7 +166,7 @@ const projects = (await getCollection('work')).sort(
 					</div>
 				</section>
 
-				<section class="section with-background bg-variant">
+				<!-- <section class="section with-background bg-variant">
 					<header class="section-header stack gap-2 lg:gap-4">
 						<h3>Mentions</h3>
 						<p>
@@ -188,14 +186,15 @@ const projects = (await getCollection('work')).sort(
 							}
 						</Grid>
 					</div>
-				</section>
+				</section> -->
 			</main>
 		</section>
 
 		<!-- Contact Section -->
-		<section id="contact">
-			<ContactCTA />
+		<section id="contact" class="wrapper stack gap-20 lg:gap-48">
+			<ContactForm />
 		</section>
+
 	</div>
 </BaseLayout>
 
