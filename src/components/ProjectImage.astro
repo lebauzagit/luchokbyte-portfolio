@@ -1,0 +1,45 @@
+---
+interface Props {
+	src: string;
+	alt?: string;
+}
+
+const { src, alt = '' } = Astro.props;
+const darkImg = src;
+const lightImg = src.replace('_Dark', '_Light');
+---
+
+<picture>
+	<source srcset={lightImg} media="(prefers-color-scheme: light)" />
+	<img src={darkImg} alt={alt} class="project-img" />
+</picture>
+
+<script>
+	function updateProjectImages() {
+		const isDark = document.documentElement.classList.contains('theme-dark');
+		document.querySelectorAll('.project-img').forEach((img) => {
+			const htmlImg = img as HTMLImageElement;
+			const currentSrc = htmlImg.src;
+			if (isDark) {
+				htmlImg.src = currentSrc.replace('_Light', '_Dark');
+			} else {
+				htmlImg.src = currentSrc.replace('_Dark', '_Light');
+			}
+		});
+	}
+
+	const observer = new MutationObserver((mutations) => {
+		mutations.forEach((mutation) => {
+			if (mutation.attributeName === 'class') {
+				updateProjectImages();
+			}
+		});
+	});
+
+	observer.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ['class']
+	});
+
+	document.addEventListener('DOMContentLoaded', updateProjectImages);
+</script>

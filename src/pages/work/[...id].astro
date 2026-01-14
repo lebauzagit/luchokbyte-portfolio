@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectImage from '../../components/ProjectImage.astro';
 import { defaultLang } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
@@ -41,7 +42,7 @@ const backHref = `${prefix}/#projects`;
 		</header>
 
 		<figure>
-			<img src={entry.data.img} alt={entry.data.img_alt || entry.data.title} />
+			<ProjectImage src={entry.data.img} alt={entry.data.img_alt || entry.data.title} />
 		</figure>
 
 		<section class="project-body">

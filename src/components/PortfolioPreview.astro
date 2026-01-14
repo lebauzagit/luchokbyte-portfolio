@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { defaultLang } from '../i18n/ui';
+import ProjectImage from './ProjectImage.astro';
 
 interface Props {
 	project: CollectionEntry<'work'>;
@@ -13,54 +14,12 @@ const entrySlug = slug ?? id;
 const prefix = lang && lang !== defaultLang ? `/${lang}` : '';
 const href = `${prefix}/work/${entrySlug}`;
 
-// Get dark and light image paths
-const darkImg = data.img;
-const lightImg = data.img.replace('_Dark', '_Light');
 ---
 
 <a class="card" href={href}>
 	<span class="title">{data.title}</span>
-	<picture>
-		<source srcset={lightImg} media="(prefers-color-scheme: light)" />
-		<img src={darkImg} alt={data.img_alt || ''} loading="lazy" decoding="async" class="project-img" />
-	</picture>
+	<ProjectImage src={data.img} alt={data.img_alt || ''} />
 </a>
-
-<script>
-	// Dynamic image switching based on theme
-	function updateProjectImages() {
-		const isDark = document.documentElement.classList.contains('theme-dark');
-		document.querySelectorAll('.project-img').forEach((img) => {
-			const htmlImg = img as HTMLImageElement;
-			const currentSrc = htmlImg.src;
-			
-			if (isDark) {
-				// Switch to dark image
-				htmlImg.src = currentSrc.replace('_Light', '_Dark');
-			} else {
-				// Switch to light image
-				htmlImg.src = currentSrc.replace('_Dark', '_Light');
-			}
-		});
-	}
-
-	// Update images when theme changes
-	const observer = new MutationObserver((mutations) => {
-		mutations.forEach((mutation) => {
-			if (mutation.attributeName === 'class') {
-				updateProjectImages();
-			}
-		});
-	});
-
-	observer.observe(document.documentElement, {
-		attributes: true,
-		attributeFilter: ['class']
-	});
-
-	// Initial update
-	document.addEventListener('DOMContentLoaded', updateProjectImages);
-</script>
 
 <style>
 	.card {
