@@ -113,11 +113,11 @@ const currentLanguage = languages[currentLang as keyof typeof languages];
 		top: calc(100% + 0.5rem);
 		right: 0;
 		min-width: 5rem;
-		background: rgba(255, 255, 255, 0.95);
+		background: hsla(var(--gray-999-basis), 0.92);
 		backdrop-filter: blur(12px) saturate(180%);
 		border: 1px solid var(--gray-800);
 		border-radius: 0.75rem;
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		box-shadow: var(--shadow-md);
 		opacity: 0;
 		visibility: hidden;
 		transform: translateY(-0.5rem);
@@ -162,9 +162,4 @@ const currentLanguage = languages[currentLang as keyof typeof languages];
 		font-size: var(--text-sm);
 	}
 
-	@media (prefers-color-scheme: dark) {
-		.lang-dropdown-menu {
-			background: rgba(23, 25, 35, 0.95);
-		}
-	}
 </style>
