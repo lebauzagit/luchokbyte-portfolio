@@ -1,18 +1,24 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { defaultLang } from '../i18n/ui';
 
 interface Props {
 	project: CollectionEntry<'work'>;
+	lang?: string;
 }
 
-const { data, id } = Astro.props.project;
+const { project, lang } = Astro.props;
+const { data, id, slug } = project;
+const entrySlug = slug ?? id;
+const prefix = lang && lang !== defaultLang ? `/${lang}` : '';
+const href = `${prefix}/work/${entrySlug}`;
 
 // Get dark and light image paths
 const darkImg = data.img;
 const lightImg = data.img.replace('_Dark', '_Light');
 ---
 
-<a class="card" href={`/work/${id}`}>
+<a class="card" href={href}>
 	<span class="title">{data.title}</span>
 	<picture>
 		<source srcset={lightImg} media="(prefers-color-scheme: light)" />

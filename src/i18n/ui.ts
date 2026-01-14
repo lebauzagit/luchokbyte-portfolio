@@ -28,6 +28,8 @@ export const ui = {
 		
 		'projects.title': 'Projects',
 		'projects.tagline': 'See my most recent projects below to get an idea of my past experience.',
+		'project.back': 'Back to projects',
+		'project.published': 'Published',
 		
 		'about.title': 'About',
 		'about.tagline': 'Thanks for stopping by. Read below to learn more about myself and my background.',
@@ -91,6 +93,8 @@ export const ui = {
 		
 		'projects.title': 'Proyectos',
 		'projects.tagline': 'Mira mis proyectos más recientes para tener una idea de mi experiencia pasada.',
+		'project.back': 'Volver a proyectos',
+		'project.published': 'Publicado',
 		
 		'about.title': 'Acerca',
 		'about.tagline': 'Gracias por visitar. Lee a continuación para conocer más sobre mí y mi trayectoria.',
