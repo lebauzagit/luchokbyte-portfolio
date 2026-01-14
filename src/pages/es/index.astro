@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+// Component Imports
+// Page section components
 import ContactForm from '../../components/ContactForm.astro';
 import Grid from '../../components/Grid.astro';
 import Hero from '../../components/Hero.astro';
@@ -7,21 +9,27 @@ import Icon from '../../components/Icon.astro';
 import Pill from '../../components/Pill.astro';
 import PortfolioPreview from '../../components/PortfolioPreview.astro';
 import Skills from '../../components/Skills.astro';
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { useTranslations } from '../../i18n/utils';
-
-const lang = 'es';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Content Fetching: List all work projects for the work section
 const projects = (await getCollection('work')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
 ---
 
 <BaseLayout>
 	<div class="stack">
+		<!-- Smooth scrolling styles -->
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
+				// Handle smooth scrolling for anchor links
 				document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 					anchor.addEventListener(
 						'click',
@@ -41,6 +49,7 @@ const projects = (await getCollection('work')).sort(
 					);
 				});
 
+				// Handle URL hash on page load
 				if (window.location.hash) {
 					const target = document.querySelector(window.location.hash);
 					if (target) {
@@ -55,6 +64,7 @@ const projects = (await getCollection('work')).sort(
 			});
 		</script>
 
+		<!-- Hero Section -->
 		<section id="home" class="wrapper stack gap-10">
 			<header class="hero">
 				<Hero
@@ -70,20 +80,21 @@ const projects = (await getCollection('work')).sort(
 				</Hero>
 
 				<img
-					alt="Luis Enrique Bauza smiling in a blue suit"
+					alt="Luis Enrique Bauza sonriendo, de traje azul trabajando en su computadora portátil"
 					width="480"
 					height="620"
-					src="/assets/portrait.jpg"
+					src="/assets/me-at-work.webp"
 				/>
 			</header>
 
-			<div id="skills">
+			<div id="skills" class="skills">
 				<Skills />
 			</div>
 		</section>
 
+		<!-- Work Section -->
 		<section id="projects" class="wrapper stack gap-10">
-			<main class="stack gap-8">
+			<main class="projects">
 				<Hero
 					title={t('projects.title')}
 					tagline={t('projects.tagline')}
@@ -104,6 +115,7 @@ const projects = (await getCollection('work')).sort(
 			</main>
 		</section>
 
+		<!-- About Section -->
 		<section id="about" class="wrapper stack gap-10">
 			<main class="about">
 				<Hero
@@ -119,147 +131,384 @@ const projects = (await getCollection('work')).sort(
 						<h3 class="card-title">{t('about.background')}</h3>
 						<div class="card-content">
 							<p>
-								Soy un desarrollador full-stack apasionado con más de 8 años de experiencia construyendo
-								aplicaciones web y experiencias digitales. Mi viaje en tecnología comenzó con curiosidad
-								sobre cómo funcionan los sitios web, llevándome a especializarme en tecnologías web modernas.
+								{t('about.background.text1')}
 							</p>
 							<p>
-								He trabajado con startups y empresas establecidas, ayudando a transformar ideas digitales
-								en productos exitosos.
+								{t('about.background.text2')}
 							</p>
 						</div>
 					</div>
 
 					<div class="about-card">
 						<div class="card-icon">
-							<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" />
+							<Icon icon="rocket-launch" color="var(--accent-regular)" size="2.5rem" />
 						</div>
 						<h3 class="card-title">{t('about.education')}</h3>
 						<div class="card-content">
 							<p>
-								Licenciatura en Ciencias de la Computación con especialización en Desarrollo Web.
-								Constantemente actualizando mis habilidades a través de cursos en línea y certificaciones.
+								{t('about.education.text1')}
+							</p>
+							<p>
+								{t('about.education.text2')}
 							</p>
 						</div>
 					</div>
 
 					<div class="about-card">
 						<div class="card-icon">
-							<Icon icon="list" color="var(--accent-regular)" size="2.5rem" />
+							<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" />
 						</div>
 						<h3 class="card-title">{t('about.skills')}</h3>
 						<div class="card-content">
 							<p>
-								JavaScript/TypeScript, React, Astro, Node.js, Python, SQL/NoSQL, Git, 
-								Cloud Services (AWS, Azure), CI/CD, Agile/Scrum
+								<strong>{t('about.skills.frontend')}</strong> {t('about.skills.frontend.text')}
 							</p>
+							<p>
+								<strong>{t('about.skills.backend')}</strong> {t('about.skills.backend.text')}
+							</p>
+							<p>
+								<strong>{t('about.skills.cloud')}</strong> {t('about.skills.cloud.text')}
+							</p>
+						</div>
+					</div>
+
+					<div class="about-card">
+						<div class="card-icon">
+							<Icon icon="heart" color="var(--accent-regular)" size="2.5rem" />
+						</div>
+						<h3 class="card-title">{t('about.community')}</h3>
+						<div class="card-content">
+							<p>
+								{t('about.community.text1')}
+							</p>
+							<p>
+								{t('about.community.text2')}
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Photo section -->
+				<section class="about-photo">
+					<div class="photo-container">
+						<img
+							width="800px"
+							src="/assets/team.webp"
+							alt="Luis Enrique Bauza at work"
+						/>
+						<div class="photo-overlay">
+							<p>"Building the future, one line of code at a time"</p>
 						</div>
 					</div>
 				</section>
 			</main>
 		</section>
 
+		<!-- Contact Section -->
 		<section id="contact" class="wrapper stack gap-10">
-			<ContactForm />
+			<main class="contact">
+				<Hero
+					title="Contact"
+					tagline="Have a project in mind or want to collaborate? Fill out the form below and I'll get back to you as soon as possible."
+				/>
+			</main>
+			<div class="contact-form">
+				<ContactForm />
+			</div>
 		</section>
 	</div>
-</BaseLayout>
 
-<style>
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
 
-	.roles {
-		display: none;
-	}
+		/* Offset for fixed navbar when scrolling to sections */
+		section[id],
+		div[id] {
+			scroll-margin-top: 5rem;
+		}
 
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
+		@media (min-width: 50em) {
+			section[id],
+			div[id] {
+				scroll-margin-top: 5rem;
+			}
+		}
+	</style>
 
-	@media (min-width: 50em) {
+	<style>
 		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 2rem;
 		}
 
 		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
+			display: none;
 		}
 
 		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
+			aspect-ratio: 5 / 4;
 			object-fit: cover;
+			object-position: top;
+			border-radius: 1.5rem;
+			box-shadow: var(--shadow-md);
+			margin-top: 2rem;
 		}
-	}
 
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
+		@media (min-width: 50em) {
+			.hero {
+				display: grid;
+				grid-template-columns: 6fr 4fr;
+				padding-inline: 2.5rem;
+				gap: 3.75rem;
+			}
 
-	.with-background {
-		position: relative;
-	}
+			.roles {
+				margin-top: 0.5rem;
+				display: flex;
+				gap: 0.5rem;
+			}
 
-	.gallery {
-		grid-area: gallery;
-	}
+			.hero img {
+				aspect-ratio: 3 / 4;
+				border-radius: 4.5rem;
+				object-fit: cover;
+			}
+			.skills {
+				margin-bottom: 2rem;
+			}
+			.contact-form {
+				display: flex;
+				justify-content: center;
+			}
+		}
 
-	.about-cards {
-		display: grid;
-		gap: 2rem;
-		margin-top: 3rem;
-	}
+		/* ====================================================== */
 
-	@media (min-width: 50em) {
+		.section {
+			display: grid;
+			gap: 2rem;
+		}
+
+		.with-background {
+			position: relative;
+		}
+
+		.with-background::before {
+			--hero-bg: var(--bg-image-subtle-2);
+
+			content: '';
+			position: absolute;
+			pointer-events: none;
+			left: 50%;
+			width: 100vw;
+			aspect-ratio: calc(2.25 / var(--bg-scale));
+			top: 0;
+			transform: translateY(-75%) translateX(-50%);
+			background:
+				url('/assets/backgrounds/noise.png') top center/220px repeat,
+				var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+				var(--gray-999);
+			background-blend-mode: overlay, normal, normal, normal;
+			mix-blend-mode: var(--bg-blend-mode);
+			z-index: -1;
+		}
+
+		.with-background.bg-variant::before {
+			--hero-bg: var(--bg-image-subtle-1);
+		}
+
+		.section-header {
+			justify-self: center;
+			text-align: center;
+			max-width: 50ch;
+			font-size: var(--text-md);
+			color: var(--gray-300);
+		}
+
+		.section-header h3 {
+			font-size: var(--text-2xl);
+		}
+
+		@media (min-width: 50em) {
+			.section {
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+				gap: 5rem;
+			}
+
+			.section.with-cta {
+				grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+			}
+
+			.section-header {
+				grid-area: header;
+				font-size: var(--text-lg);
+			}
+
+			.section-header h3 {
+				font-size: var(--text-4xl);
+			}
+
+			.with-cta .section-header {
+				justify-self: flex-start;
+				text-align: left;
+			}
+
+			.gallery {
+				grid-area: gallery;
+			}
+
+			.cta {
+				grid-area: cta;
+			}
+		}
+
+		/* ====================================================== */
+
+		/* About Cards Styling */
 		.about-cards {
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-			gap: 3rem;
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			margin: 3rem 0;
 		}
-	}
 
-	.about-card {
-		padding: 2rem;
-		border: 1px solid var(--gray-800);
-		border-radius: 1rem;
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-md);
-	}
+		.about-card {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			text-align: left;
+			padding: 2rem;
+			border: 1px solid var(--gray-800);
+			border-radius: 1.5rem;
+			background: rgba(255, 255, 255, 0.02);
+			backdrop-filter: blur(10px);
+			box-shadow: var(--shadow-lg);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
 
-	.card-icon {
-		margin-bottom: 1.5rem;
-	}
+		.about-card:hover {
+			transform: translateY(-5px);
+			box-shadow: var(--shadow-xl);
+		}
 
-	.card-title {
-		font-size: var(--text-xl);
-		color: var(--gray-0);
-		margin-bottom: 1rem;
-	}
+		.card-icon {
+			margin-bottom: 1.5rem;
+			padding: 1rem;
+			border-radius: 50%;
+			background: var(--gradient-subtle);
+			box-shadow: var(--shadow-md);
+		}
 
-	.card-content {
-		color: var(--gray-300);
-		line-height: 1.6;
-	}
+		.card-title {
+			font-size: var(--text-xl);
+			font-weight: 600;
+			color: var(--gray-0);
+			margin-bottom: 1rem;
+		}
 
-	.card-content p {
-		margin-bottom: 1rem;
-	}
+		.card-content {
+			color: var(--gray-300);
+			line-height: 1.6;
+			text-align: left;
+		}
 
-	.card-content p:last-child {
-		margin-bottom: 0;
-	}
-</style>
+		.card-content p {
+			margin-bottom: 1rem;
+		}
+
+		.card-content p:last-child {
+			margin-bottom: 0;
+		}
+
+		.card-content strong {
+			color: var(--accent-regular);
+			font-weight: 600;
+		}
+
+		/* About Photo Section */
+		.about-photo {
+			margin-top: 3rem;
+			display: flex;
+			justify-content: center;
+		}
+
+		.photo-container {
+			position: relative;
+			border-radius: 1.5rem;
+			overflow: hidden;
+			box-shadow: var(--shadow-xl);
+			max-width: 800px;
+		}
+
+		.photo-container img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.photo-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+			padding: 2rem 1.5rem 1.5rem;
+			color: white;
+		}
+
+		.photo-overlay p {
+			font-style: italic;
+			font-size: var(--text-lg);
+			margin: 0;
+			text-align: center;
+		}
+
+		@media (min-width: 50em) {
+			.about-cards {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 3rem;
+			}
+
+			.about-card {
+				padding: 2.5rem;
+			}
+
+			.card-title {
+				font-size: var(--text-2xl);
+			}
+		}
+
+		@media (min-width: 60em) {
+			.about-cards {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		/* ====================================================== */
+
+		.mention-card {
+			display: flex;
+			height: 7rem;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border: 1px solid var(--gray-800);
+			border-radius: 1.5rem;
+			color: var(--gray-300);
+			background: var(--gradient-subtle);
+			box-shadow: var(--shadow-sm);
+		}
+
+		@media (min-width: 50em) {
+			.mention-card {
+				border-radius: 1.5rem;
+				height: 9.5rem;
+			}
+		}
+	</style>
+</BaseLayout>

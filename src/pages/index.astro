@@ -129,16 +129,13 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="code" color="var(--accent-regular)" size="2.5rem" />
 						</div>
-						<h3 class="card-title">Background</h3>
+						<h3 class="card-title">{t('about.background')}</h3>
 						<div class="card-content">
 							<p>
-								I'm a passionate full-stack developer with over 8 years of experience building
-								web applications and digital experiences. My journey in tech began with curiosity
-								about how websites work, leading me to specialize in modern web technologies.
+								{t('about.background.text1')}
 							</p>
 							<p>
-								I've worked with startups and established companies, helping transform digital
-								presence through clean code and exceptional user experiences.
+								{t('about.background.text2')}
 							</p>
 						</div>
 					</div>
@@ -147,15 +144,13 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="rocket-launch" color="var(--accent-regular)" size="2.5rem" />
 						</div>
-						<h3 class="card-title">Education</h3>
+						<h3 class="card-title">{t('about.education')}</h3>
 						<div class="card-content">
 							<p>
-								Bachelor's degree in Computer Science with strong foundation in software engineering,
-								algorithms, and system design. Active in programming competitions and hackathons.
+								{t('about.education.text1')}
 							</p>
 							<p>
-								Continuous learning through online platforms, currently pursuing certifications
-								in cloud architecture and DevOps practices.
+								{t('about.education.text2')}
 							</p>
 						</div>
 					</div>
@@ -164,16 +159,16 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" />
 						</div>
-						<h3 class="card-title">Technical Skills</h3>
+						<h3 class="card-title">{t('about.skills')}</h3>
 						<div class="card-content">
 							<p>
-								<strong>Frontend:</strong> React, Vue.js, JavaScript frameworks, responsive design
+								<strong>{t('about.skills.frontend')}:</strong> {t('about.skills.frontend.text')}
 							</p>
 							<p>
-								<strong>Backend:</strong> Node.js, Python, databases (PostgreSQL, MongoDB, Redis)
+								<strong>{t('about.skills.backend')}:</strong> {t('about.skills.backend.text')}
 							</p>
 							<p>
-								<strong>Cloud:</strong> AWS, Docker, RESTful APIs, microservices
+								<strong>{t('about.skills.cloud')}:</strong> {t('about.skills.cloud.text')}
 							</p>
 						</div>
 					</div>
@@ -182,13 +177,13 @@ const projects = (await getCollection('work')).sort(
 						<div class="card-icon">
 							<Icon icon="heart" color="var(--accent-regular)" size="2.5rem" />
 						</div>
-						<h3 class="card-title">Community & Interests</h3>
+						<h3 class="card-title">{t('about.community')}</h3>
 						<div class="card-content">
 							<p>
-								Active in developer community: speaking at conferences, blogging, open-source contributions.
+								{t('about.community.text1')}
 							</p>
 							<p>
-								Personal interests: exploring new technologies, gaming, family time, and cultural travel experiences.
+								{t('about.community.text2')}
 							</p>
 						</div>
 					</div>
