@@ -1,8 +1,6 @@
 # Portfolio Project
 
-This is a personal portfolio project built with Astro. It showcases my work, skills, and background as a developer, speaker, and writer.
-
-![Portfolio Preview](public/assets/me-at-work.webp)
+Personal portfolio project built with Astro. It showcases my work, skills, and background as a developer, speaker, and writer.
 
 ## Features
 
@@ -21,6 +19,8 @@ This is a personal portfolio project built with Astro. It showcases my work, ski
 - **Prettier**: For code formatting.
 
 ## Getting Started
+
+<img src="public/assets/me-at-work.webp" alt="Portfolio Preview" width="50%" style="display: block; margin: 2rem auto;">
 
 To run this project locally, follow these steps:
 
