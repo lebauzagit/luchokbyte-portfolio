@@ -31,20 +31,22 @@ const projects = (await getCollection('work')).sort(
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
 				// Handle smooth scrolling for anchor links
-				document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+				document.querySelectorAll('a[href*="#"]').forEach(function (anchor) {
 					anchor.addEventListener(
 						'click',
 						function (this: HTMLAnchorElement, e) {
-							e.preventDefault();
 							const href = this.getAttribute('href');
-							if (href) {
-								const target = document.querySelector(href);
-								if (target) {
-									target.scrollIntoView({
-										behavior: 'smooth',
-										block: 'start',
-									});
-								}
+							if (!href) return;
+							const url = new URL(href, window.location.origin);
+							if (url.pathname !== window.location.pathname || !url.hash) return;
+							e.preventDefault();
+							const target = document.querySelector(url.hash);
+							if (target) {
+								target.scrollIntoView({
+									behavior: 'smooth',
+									block: 'start',
+								});
+								window.history.replaceState(null, '', url.hash);
 							}
 						},
 					);
