@@ -1,22 +1,26 @@
 ---
 import Icon from './Icon.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="box skills">
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Full Stack</h2>
-		<p>Experienced in both frontend and backend development, creating seamless user experiences from database to interface using modern technologies and best practices.</p>
+		<h2>{t('skills.fullstack')}</h2>
+		<p>{t('skills.fullstack.desc')}</p>
 	</div>
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Industry Leader</h2>
-		<p>Recognized for innovative solutions and thought leadership in web development, consistently delivering high-quality projects that set industry standards.</p>
+		<h2>{t('skills.leader')}</h2>
+		<p>{t('skills.leader.desc')}</p>
 	</div>
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Strategy-Minded</h2>
-		<p>Combining technical expertise with strategic thinking to build scalable, maintainable solutions that align with business objectives and user needs.</p>
+		<h2>{t('skills.strategy')}</h2>
+		<p>{t('skills.strategy.desc')}</p>
 	</div>
 </section>
 

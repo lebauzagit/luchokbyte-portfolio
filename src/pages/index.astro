@@ -11,6 +11,10 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Skills from '../components/Skills.astro';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 // Content Fetching: List all work projects for the work section
 const projects = (await getCollection('work')).sort(
@@ -65,14 +69,14 @@ const projects = (await getCollection('work')).sort(
 		<section id="home" class="wrapper stack gap-10">
 			<header class="hero">
 				<Hero
-					title="Hello,"
-					tagline="My name is Luis Enrique Bauza, but friends call me LuchoKb. I am a Creative Developer who is currently based in North Bergen, New Jersey."
+					title={t('hero.title')}
+					tagline={t('hero.name') + ' ' + t('hero.tagline')}
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> {t('hero.developer')}</Pill>
+						<Pill><Icon icon="microphone-stage" size="1.33em" /> {t('hero.speaker')}</Pill>
+						<Pill><Icon icon="pencil-line" size="1.33em" /> {t('hero.writer')}</Pill>
 					</div>
 				</Hero>
 
@@ -93,8 +97,8 @@ const projects = (await getCollection('work')).sort(
 		<section id="projects" class="wrapper stack gap-10">
 			<main class="projects">
 				<Hero
-					title="Projects"
-					tagline="See my most recent projects below to get an idea of my past experience."
+					title={t('projects.title')}
+					tagline={t('projects.tagline')}
 				/>
 				<section class="section with-background with-cta">
 					<div class="gallery">
@@ -116,8 +120,8 @@ const projects = (await getCollection('work')).sort(
 		<section id="about" class="wrapper stack gap-10">
 			<main class="about">
 				<Hero
-					title="About"
-					tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+					title={t('about.title')}
+					tagline={t('about.tagline')}
 				/>
 
 				<section class="about-cards">
