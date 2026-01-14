@@ -36,9 +36,11 @@ const { lang, size = '1.5rem' } = Astro.props;
 		border: none;
 		color: var(--accent-dark);
 		transition: color var(--theme-transition);
+		filter: brightness(0.75) opacity(0.85);
 	}
 
 	.flag-icon:hover {
 		color: var(--accent-text-over);
+		filter: brightness(0.85) opacity(0.95);
 	}
 </style>
