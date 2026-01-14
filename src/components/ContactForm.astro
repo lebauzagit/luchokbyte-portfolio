@@ -122,10 +122,9 @@ const t = useTranslations(lang);
 	const form = document.getElementById('contactForm') as HTMLFormElement;
 	const formStatus = document.getElementById('formStatus');
 
-	form.addEventListener('submit', async (e) => {
-		e.preventDefault();
-
-		if (!formStatus) return;
+	if (form && formStatus) {
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
 
 		// Show loading state
 		const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
@@ -169,7 +168,8 @@ const t = useTranslations(lang);
 			submitBtn.disabled = false;
 			submitBtn.innerHTML = originalText;
 		}
-	});
+		});
+	}
 </script>
 
 <style>

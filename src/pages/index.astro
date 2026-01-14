@@ -209,8 +209,8 @@ const projects = (await getCollection('work')).sort(
 		<section id="contact" class="wrapper stack gap-10">
 			<main class="contact">
 				<Hero
-					title="Contact"
-					tagline="Have a project in mind or want to collaborate? Fill out the form below and I'll get back to you as soon as possible."
+					title={t('contact.title')}
+					tagline={t('contact.subtitle')}
 				/>
 			</main>
 			<div class="contact-form">
