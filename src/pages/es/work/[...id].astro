@@ -7,13 +7,19 @@ import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
 	const entries = await getCollection('work');
-	return entries.map((entry) => ({
-		params: { id: entry.slug ?? entry.id },
-		props: { entry },
-	}));
+	const bySlug = new Map(entries.map((entry) => [entry.slug ?? entry.id, entry]));
+	const baseEntries = entries.filter((entry) => !(entry.slug || '').startsWith('es/'));
+	return baseEntries.map((entry) => {
+		const slug = entry.slug ?? entry.id;
+		const localized = bySlug.get(`es/${slug}`);
+		return {
+			params: { id: slug },
+			props: { entry: localized ?? entry, isFallback: !localized },
+		};
+	});
 }
 
-const { entry } = Astro.props;
+const { entry, isFallback } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -36,6 +42,9 @@ const backHref = `${prefix}/#projects`;
 
 		<header>
 			<h1 class="project-title">{entry.data.title}</h1>
+			{isFallback && (
+				<p class="project-fallback">{t('project.fallback')}</p>
+			)}
 			<p class="project-date">
 				{t('project.published')}: {new Date(entry.data.publishDate).toLocaleDateString()}
 			</p>
@@ -55,5 +64,13 @@ const backHref = `${prefix}/#projects`;
 		.project-title { margin: 0; font-size: 1.75rem; }
 		.project-date { color: var(--muted); margin-bottom: 1rem; }
 		.back-link { display: inline-flex; gap: 0.5rem; text-decoration: none; color: var(--accent-regular); }
+		.project-fallback {
+			margin: 0.5rem 0 0;
+			padding: 0.5rem 0.75rem;
+			background: var(--accent-subtle);
+			border-radius: 0.5rem;
+			color: var(--accent-regular);
+			font-size: var(--text-sm);
+		}
 	</style>
 </BaseLayout>

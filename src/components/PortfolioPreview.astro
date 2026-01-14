@@ -10,9 +10,12 @@ interface Props {
 
 const { project, lang } = Astro.props;
 const { data, id, slug } = project;
-const entrySlug = slug ?? id;
+const rawSlug = slug ?? id;
+const normalizedSlug = lang && rawSlug.startsWith(`${lang}/`)
+	? rawSlug.slice(lang.length + 1)
+	: rawSlug;
 const prefix = lang && lang !== defaultLang ? `/${lang}` : '';
-const href = `${prefix}/work/${entrySlug}`;
+const href = `${prefix}/work/${normalizedSlug}`;
 
 ---
 

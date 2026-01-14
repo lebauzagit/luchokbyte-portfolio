@@ -7,7 +7,8 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 export async function getStaticPaths() {
 	const entries = await getCollection('work');
-	return entries.map((entry) => ({
+	const baseEntries = entries.filter((entry) => !(entry.slug || '').startsWith('es/'));
+	return baseEntries.map((entry) => ({
 		params: { id: entry.slug ?? entry.id },
 		props: { entry },
 	}));
