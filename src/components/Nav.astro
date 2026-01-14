@@ -2,21 +2,18 @@
 import Icon from './Icon.astro';
 import type { iconPaths } from './IconPaths';
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-// Static navigation labels since we're removing i18n for now
-const navLabels = {
-	home: 'Home',
-	projects: 'Projects',
-	about: 'About',
-	contact: 'Contact',
-};
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-	{ label: navLabels.home, href: `#home` },
-	{ label: navLabels.projects, href: `#projects` },
-	{ label: navLabels.about, href: `#about` },
-	{ label: navLabels.contact, href: `#contact` },
+	{ label: t('nav.home'), href: `#home` },
+	{ label: t('nav.projects'), href: `#projects` },
+	{ label: t('nav.about'), href: `#about` },
+	{ label: t('nav.contact'), href: `#contact` },
 ]
 
 /** Icon links to social media — edit these with links to your profiles! */
@@ -103,8 +100,11 @@ const isCurrentPage = (href: string) => {
 				}
 			</div>
 
-			<div class="theme-toggle">
-				<ThemeToggle />
+			<div class="nav-controls">
+				<LanguageSwitcher />
+				<div class="theme-toggle">
+					<ThemeToggle />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -365,6 +365,12 @@ const isCurrentPage = (href: string) => {
 	.social:hover,
 	.social:focus {
 		color: var(--accent-text-over);
+	}
+
+	.nav-controls {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
 	}
 
 	.theme-toggle {

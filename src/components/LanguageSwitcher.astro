@@ -1,0 +1,165 @@
+---
+import { languages } from '../i18n/ui';
+import Icon from './Icon.astro';
+import FlagIcon from './FlagIcon.astro';
+
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.split('/')[1] || 'en';
+
+// Remove language prefix from path
+const pathWithoutLang = currentPath.replace(/^\/(en|es)/, '') || '/';
+
+const languageOptions = Object.entries(languages).map(([lang, label]) => ({
+	lang: lang as 'en' | 'es',
+	label,
+	href: lang === 'en' ? pathWithoutLang : `/${lang}${pathWithoutLang}`
+}));
+
+const currentLanguage = languages[currentLang as keyof typeof languages];
+---
+
+<div class="language-switcher">
+	<button class="lang-dropdown-trigger" aria-label="Select language">
+		<FlagIcon lang={currentLang as 'en' | 'es'} size="1.25rem" />
+		<!-- <span class="current-lang">{currentLanguage}</span> -->
+		<Icon icon="down-caret" size="0.875rem" />
+	</button>
+	<div class="lang-dropdown-menu">
+		{languageOptions.map(({ lang, label, href }) => (
+			<a
+				href={href}
+				class:list={['lang-option', { active: currentLang === lang }]}
+				aria-current={currentLang === lang ? 'page' : undefined}
+			>
+				<FlagIcon lang={lang} size="1.25rem" />
+				<span class="lang-label">{label}</span>
+			</a>
+		))}
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const switchers = document.querySelectorAll('.language-switcher');
+		
+		switchers.forEach(switcher => {
+			const trigger = switcher.querySelector('.lang-dropdown-trigger') as HTMLButtonElement;
+			const menu = switcher.querySelector('.lang-dropdown-menu') as HTMLElement;
+			
+			if (!trigger || !menu) return;
+			
+			const toggleDropdown = () => {
+				const isOpen = switcher.classList.contains('open');
+				switcher.classList.toggle('open', !isOpen);
+			};
+			
+			const closeDropdown = () => {
+				switcher.classList.remove('open');
+			};
+			
+			trigger.addEventListener('click', (e) => {
+				e.stopPropagation();
+				toggleDropdown();
+			});
+			
+			// Close when clicking outside
+			document.addEventListener('click', (e) => {
+				if (!switcher.contains(e.target as Node)) {
+					closeDropdown();
+				}
+			});
+			
+			// Close when pressing Escape
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') {
+					closeDropdown();
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	.language-switcher {
+		position: relative;
+	}
+
+	.lang-dropdown-trigger {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 0.75rem;
+		font-size: var(--text-sm);
+		font-weight: 500;
+		color: var(--gray-300);
+		background: transparent;
+		border: none;
+		border-radius: 0.5rem;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.lang-dropdown-trigger:hover {
+		color: var(--gray-0);
+		background-color: var(--accent-subtle-overlay);
+	}
+
+	.current-lang {
+		font-size: var(--text-sm);
+	}
+
+	.lang-dropdown-menu {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		right: 0;
+		min-width: 5rem;
+		background: hsla(var(--gray-999-basis), 0.92);
+		backdrop-filter: blur(12px) saturate(180%);
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		box-shadow: var(--shadow-md);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-0.5rem);
+		transition: all 0.2s ease;
+		z-index: 1000;
+		overflow: hidden;
+	}
+
+	.language-switcher.open .lang-dropdown-menu {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.lang-option {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem 1rem;
+		text-decoration: none;
+		color: var(--gray-300);
+		transition: all 0.15s ease;
+	}
+
+	.lang-option:hover {
+		background-color: var(--accent-subtle-overlay);
+		color: var(--gray-0);
+	}
+
+	.lang-option.active {
+		background-color: var(--accent-regular);
+		color: var(--accent-text-over);
+	}
+
+	.lang-code {
+		font-weight: 600;
+		font-size: var(--text-sm);
+		width: 2rem;
+	}
+
+	.lang-label {
+		font-size: var(--text-sm);
+	}
+
+</style>

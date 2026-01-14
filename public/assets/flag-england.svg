@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20">
+  <rect width="30" height="20" fill="#012169"/>
+  <!-- Diagonales blancas (San Andrés) -->
+  <path d="M0,0 L30,20 M30,0 L0,20" stroke="#FFF" stroke-width="4"/>
+  <!-- Diagonales rojas finas (San Patricio) -->
+  <path d="M0,0 L30,20 M30,0 L0,20" stroke="#CE1124" stroke-width="2"/>
+  <!-- Cruz blanca central -->
+  <rect x="13" width="4" height="20" fill="#FFF"/>
+  <rect y="8" width="30" height="4" fill="#FFF"/>
+  <!-- Cruz roja central (San Jorge) -->
+  <rect x="13.5" width="3" height="20" fill="#CE1124"/>
+  <rect y="8.5" width="30" height="3" fill="#CE1124"/>
+</svg>

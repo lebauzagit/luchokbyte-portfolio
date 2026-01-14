@@ -1,5 +1,9 @@
 ---
 // Contact form component for collaboration requests
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="contact-form-section">
@@ -12,38 +16,38 @@
 		<div class="form-group">
 			<div class="form-row">
 				<div class="col">
-                    <label for="name">Name <span class="required">*</span></label>
+                    <label for="name">{t('contact.name')} <span class="required">*</span></label>
 					<input
 						type="text"
 						name="name"
 						class="form-control"
-						placeholder="Full Name"
+						placeholder={t('contact.placeholder.name')}
 						required
 					/>
 				</div>
 				<div class="col">
-                    <label for="email">Email <span class="required">*</span></label>
+                    <label for="email">{t('contact.email')} <span class="required">*</span></label>
 					<input
 						type="email"
 						name="email"
 						class="form-control"
-						placeholder="Email Address"
+						placeholder={t('contact.placeholder.email')}
 						required
 					/>
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
-            <label for="message">Message <span class="required">*</span></label>
+            <label for="message">{t('contact.message')} <span class="required">*</span></label>
 			<textarea
-				placeholder="Your Message"
+				placeholder={t('contact.placeholder.message')}
 				class="form-control"
 				name="message"
 				rows="10"
 				required></textarea>
 		</div>
 		<button type="submit" class="submit-btn"
-			>Submit Form</button
+			>{t('contact.send')}</button
 		>
 	</form>
 	<!-- <form class="contact-form" id="contactForm"  target="_blank" action="https://formsubmit.co/lebauzagit@gmail.com" method="POST">
@@ -118,10 +122,9 @@
 	const form = document.getElementById('contactForm') as HTMLFormElement;
 	const formStatus = document.getElementById('formStatus');
 
-	form.addEventListener('submit', async (e) => {
-		e.preventDefault();
-
-		if (!formStatus) return;
+	if (form && formStatus) {
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
 
 		// Show loading state
 		const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
@@ -165,7 +168,8 @@
 			submitBtn.disabled = false;
 			submitBtn.innerHTML = originalText;
 		}
-	});
+		});
+	}
 </script>
 
 <style>

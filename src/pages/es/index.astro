@@ -2,17 +2,16 @@
 import { getCollection } from 'astro:content';
 // Component Imports
 // Page section components
-import ContactForm from '../components/ContactForm.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Skills from '../components/Skills.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import Grid from '../../components/Grid.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import Pill from '../../components/Pill.astro';
+import PortfolioPreview from '../../components/PortfolioPreview.astro';
+import Skills from '../../components/Skills.astro';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -81,7 +80,7 @@ const projects = (await getCollection('work')).sort(
 				</Hero>
 
 				<img
-					alt="Luis Enrique Bauza smiling in a blue soot"
+					alt="Luis Enrique Bauza sonriendo, de traje azul trabajando en su computadora portátil"
 					width="480"
 					height="620"
 					src="/assets/me-at-work.webp"
@@ -162,13 +161,13 @@ const projects = (await getCollection('work')).sort(
 						<h3 class="card-title">{t('about.skills')}</h3>
 						<div class="card-content">
 							<p>
-								<strong>{t('about.skills.frontend')}:</strong> {t('about.skills.frontend.text')}
+								<strong>{t('about.skills.frontend')}</strong> {t('about.skills.frontend.text')}
 							</p>
 							<p>
-								<strong>{t('about.skills.backend')}:</strong> {t('about.skills.backend.text')}
+								<strong>{t('about.skills.backend')}</strong> {t('about.skills.backend.text')}
 							</p>
 							<p>
-								<strong>{t('about.skills.cloud')}:</strong> {t('about.skills.cloud.text')}
+								<strong>{t('about.skills.cloud')}</strong> {t('about.skills.cloud.text')}
 							</p>
 						</div>
 					</div>
@@ -198,7 +197,7 @@ const projects = (await getCollection('work')).sort(
 							alt="Luis Enrique Bauza at work"
 						/>
 						<div class="photo-overlay">
-							<p>"Building the future, one line of code at a time"</p>
+							<p>"Construyendo el futuro, una línea de código a la vez"</p>
 						</div>
 					</div>
 				</section>
