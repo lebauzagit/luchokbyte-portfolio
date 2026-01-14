@@ -119,6 +119,90 @@ const projects = (await getCollection('work')).sort(
 					title="About"
 					tagline="Thanks for stopping by. Read below to learn more about myself and my background."
 				/>
+
+				<section class="about-cards">
+					<div class="about-card">
+						<div class="card-icon">
+							<Icon icon="code" color="var(--accent-regular)" size="2.5rem" />
+						</div>
+						<h3 class="card-title">Background</h3>
+						<div class="card-content">
+							<p>
+								I'm a passionate full-stack developer with over 8 years of experience building
+								web applications and digital experiences. My journey in tech began with curiosity
+								about how websites work, leading me to specialize in modern web technologies.
+							</p>
+							<p>
+								I've worked with startups and established companies, helping transform digital
+								presence through clean code and exceptional user experiences.
+							</p>
+						</div>
+					</div>
+
+					<div class="about-card">
+						<div class="card-icon">
+							<Icon icon="rocket-launch" color="var(--accent-regular)" size="2.5rem" />
+						</div>
+						<h3 class="card-title">Education</h3>
+						<div class="card-content">
+							<p>
+								Bachelor's degree in Computer Science with strong foundation in software engineering,
+								algorithms, and system design. Active in programming competitions and hackathons.
+							</p>
+							<p>
+								Continuous learning through online platforms, currently pursuing certifications
+								in cloud architecture and DevOps practices.
+							</p>
+						</div>
+					</div>
+
+					<div class="about-card">
+						<div class="card-icon">
+							<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" />
+						</div>
+						<h3 class="card-title">Technical Skills</h3>
+						<div class="card-content">
+							<p>
+								<strong>Frontend:</strong> React, Vue.js, JavaScript frameworks, responsive design
+							</p>
+							<p>
+								<strong>Backend:</strong> Node.js, Python, databases (PostgreSQL, MongoDB, Redis)
+							</p>
+							<p>
+								<strong>Cloud:</strong> AWS, Docker, RESTful APIs, microservices
+							</p>
+						</div>
+					</div>
+
+					<div class="about-card">
+						<div class="card-icon">
+							<Icon icon="heart" color="var(--accent-regular)" size="2.5rem" />
+						</div>
+						<h3 class="card-title">Community & Interests</h3>
+						<div class="card-content">
+							<p>
+								Active in developer community: speaking at conferences, blogging, open-source contributions.
+							</p>
+							<p>
+								Personal interests: exploring new technologies, gaming, family time, and cultural travel experiences.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Photo section -->
+				<section class="about-photo">
+					<div class="photo-container">
+						<img
+							width="800px"
+							src="/assets/team.webp"
+							alt="Luis Enrique Bauza at work"
+						/>
+						<div class="photo-overlay">
+							<p>"Building the future, one line of code at a time"</p>
+						</div>
+					</div>
+				</section>
 			</main>
 		</section>
 
@@ -282,6 +366,128 @@ const projects = (await getCollection('work')).sort(
 
 			.cta {
 				grid-area: cta;
+			}
+		}
+
+		/* ====================================================== */
+
+		/* About Cards Styling */
+		.about-cards {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			margin: 3rem 0;
+		}
+
+		.about-card {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			text-align: left;
+			padding: 2rem;
+			border: 1px solid var(--gray-800);
+			border-radius: 1.5rem;
+			background: rgba(255, 255, 255, 0.02);
+			backdrop-filter: blur(10px);
+			box-shadow: var(--shadow-lg);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.about-card:hover {
+			transform: translateY(-5px);
+			box-shadow: var(--shadow-xl);
+		}
+
+		.card-icon {
+			margin-bottom: 1.5rem;
+			padding: 1rem;
+			border-radius: 50%;
+			background: var(--gradient-subtle);
+			box-shadow: var(--shadow-md);
+		}
+
+		.card-title {
+			font-size: var(--text-xl);
+			font-weight: 600;
+			color: var(--gray-0);
+			margin-bottom: 1rem;
+		}
+
+		.card-content {
+			color: var(--gray-300);
+			line-height: 1.6;
+			text-align: left;
+		}
+
+		.card-content p {
+			margin-bottom: 1rem;
+		}
+
+		.card-content p:last-child {
+			margin-bottom: 0;
+		}
+
+		.card-content strong {
+			color: var(--accent-regular);
+			font-weight: 600;
+		}
+
+		/* About Photo Section */
+		.about-photo {
+			margin-top: 3rem;
+			display: flex;
+			justify-content: center;
+		}
+
+		.photo-container {
+			position: relative;
+			border-radius: 1.5rem;
+			overflow: hidden;
+			box-shadow: var(--shadow-xl);
+			max-width: 800px;
+		}
+
+		.photo-container img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.photo-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+			padding: 2rem 1.5rem 1.5rem;
+			color: white;
+		}
+
+		.photo-overlay p {
+			font-style: italic;
+			font-size: var(--text-lg);
+			margin: 0;
+			text-align: center;
+		}
+
+		@media (min-width: 50em) {
+			.about-cards {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 3rem;
+			}
+
+			.about-card {
+				padding: 2.5rem;
+			}
+
+			.card-title {
+				font-size: var(--text-2xl);
+			}
+		}
+
+		@media (min-width: 60em) {
+			.about-cards {
+				grid-template-columns: repeat(2, 1fr);
 			}
 		}
 
