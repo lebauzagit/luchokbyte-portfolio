@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 // Component Imports
 // Page section components
+import About from '../components/About.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
@@ -21,6 +22,36 @@ const allProjects = await getCollection('work');
 const projects = allProjects
 	.filter((project) => !(project.slug || '').startsWith('es/'))
 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// About section data
+const aboutCards = [
+	{
+		icon: 'code' as const,
+		title: t('about.background'),
+		content: [t('about.background.text1'), t('about.background.text2')]
+	},
+	{
+		icon: 'rocket-launch' as const,
+		title: t('about.education'),
+		content: [t('about.education.text1'), t('about.education.text2')]
+	},
+	{
+		icon: 'terminal-window' as const,
+		title: t('about.skills'),
+		content: `<strong>${t('about.skills.frontend')}:</strong> ${t('about.skills.frontend.text')}<br><strong>${t('about.skills.backend')}:</strong> ${t('about.skills.backend.text')}<br><strong>${t('about.skills.cloud')}:</strong> ${t('about.skills.cloud.text')}`
+	},
+	{
+		icon: 'heart' as const,
+		title: t('about.community'),
+		content: [t('about.community.text1'), t('about.community.text2')]
+	}
+];
+
+const aboutPhoto = {
+	src: '/assets/team.webp',
+	alt: 'Luis Enrique Bauza at work',
+	overlayText: '"Building the future, one line of code at a time"'
+};
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -121,91 +152,12 @@ const projects = allProjects
 
 		<!-- About Section -->
 		<section id="about" class="wrapper stack gap-10">
-			<main class="about">
-				<Hero
-					title={t('about.title')}
-					tagline={t('about.tagline')}
-				/>
-
-				<section class="about-cards">
-					<div class="about-card">
-						<div class="card-icon">
-							<Icon icon="code" color="var(--accent-regular)" size="2.5rem" />
-						</div>
-						<h3 class="card-title">{t('about.background')}</h3>
-						<div class="card-content">
-							<p>
-								{t('about.background.text1')}
-							</p>
-							<p>
-								{t('about.background.text2')}
-							</p>
-						</div>
-					</div>
-
-					<div class="about-card">
-						<div class="card-icon">
-							<Icon icon="rocket-launch" color="var(--accent-regular)" size="2.5rem" />
-						</div>
-						<h3 class="card-title">{t('about.education')}</h3>
-						<div class="card-content">
-							<p>
-								{t('about.education.text1')}
-							</p>
-							<p>
-								{t('about.education.text2')}
-							</p>
-						</div>
-					</div>
-
-					<div class="about-card">
-						<div class="card-icon">
-							<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" />
-						</div>
-						<h3 class="card-title">{t('about.skills')}</h3>
-						<div class="card-content">
-							<p>
-								<strong>{t('about.skills.frontend')}:</strong> {t('about.skills.frontend.text')}
-							</p>
-							<p>
-								<strong>{t('about.skills.backend')}:</strong> {t('about.skills.backend.text')}
-							</p>
-							<p>
-								<strong>{t('about.skills.cloud')}:</strong> {t('about.skills.cloud.text')}
-							</p>
-						</div>
-					</div>
-
-					<div class="about-card">
-						<div class="card-icon">
-							<Icon icon="heart" color="var(--accent-regular)" size="2.5rem" />
-						</div>
-						<h3 class="card-title">{t('about.community')}</h3>
-						<div class="card-content">
-							<p>
-								{t('about.community.text1')}
-							</p>
-							<p>
-								{t('about.community.text2')}
-							</p>
-						</div>
-					</div>
-				</section>
-
-				<!-- Photo section -->
-				<section class="about-photo">
-					<div class="photo-container">
-						<img
-							width="800px"
-							src="/assets/team.webp"
-							alt="Luis Enrique Bauza at work"
-						/>
-						<div class="photo-overlay">
-							<p>"Building the future, one line of code at a time"</p>
-						</div>
-					</div>
-				</section>
-			</main>
+			<About
+				title={t('about.title')}
+				tagline={t('about.tagline')}
+				cards={aboutCards}
+				photo={aboutPhoto}
+			/>
 		</section>
 
 		<!-- Contact Section -->
@@ -368,127 +320,6 @@ const projects = allProjects
 
 			.cta {
 				grid-area: cta;
-			}
-		}
-
-		/* ====================================================== */
-
-		/* About Cards Styling */
-		.about-cards {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 2rem;
-			margin: 3rem 0;
-		}
-
-		.about-card {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			text-align: left;
-			padding: 2rem;
-			border: 1px solid var(--gray-800);
-			border-radius: 1.5rem;
-			background: rgba(255, 255, 255, 0.02);
-			backdrop-filter: blur(10px);
-			/* box-shadow: var(--shadow-lg); */
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
-		}
-
-		/* .about-card:hover {
-			box-shadow: var(--shadow-md);
-		} */
-
-		.card-icon {
-			margin-bottom: 1.5rem;
-			padding: 1rem;
-			border-radius: 50%;
-			background: var(--gradient-subtle);
-			box-shadow: var(--shadow-md);
-		}
-
-		.card-title {
-			font-size: var(--text-xl);
-			font-weight: 600;
-			color: var(--gray-0);
-			margin-bottom: 1rem;
-		}
-
-		.card-content {
-			color: var(--gray-300);
-			line-height: 1.6;
-			text-align: left;
-		}
-
-		.card-content p {
-			margin-bottom: 1rem;
-		}
-
-		.card-content p:last-child {
-			margin-bottom: 0;
-		}
-
-		.card-content strong {
-			color: var(--accent-regular);
-			font-weight: 600;
-		}
-
-		/* About Photo Section */
-		.about-photo {
-			margin-top: 3rem;
-			display: flex;
-			justify-content: center;
-		}
-
-		.photo-container {
-			position: relative;
-			border-radius: 1.5rem;
-			overflow: hidden;
-			box-shadow: var(--shadow-xl);
-			max-width: 800px;
-		}
-
-		.photo-container img {
-			width: 100%;
-			height: auto;
-			display: block;
-		}
-
-		.photo-overlay {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-			padding: 2rem 1.5rem 1.5rem;
-			color: white;
-		}
-
-		.photo-overlay p {
-			font-style: italic;
-			font-size: var(--text-lg);
-			margin: 0;
-			text-align: center;
-		}
-
-		@media (min-width: 50em) {
-			.about-cards {
-				grid-template-columns: repeat(2, 1fr);
-				gap: 3rem;
-			}
-
-			.about-card {
-				padding: 2.5rem;
-			}
-
-			.card-title {
-				font-size: var(--text-2xl);
-			}
-		}
-
-		@media (min-width: 60em) {
-			.about-cards {
-				grid-template-columns: repeat(2, 1fr);
 			}
 		}
 
