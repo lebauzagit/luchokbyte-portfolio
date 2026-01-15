@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 // Component Imports
 // Page section components
-import About from '../components/About.astro';
+import GenericCard from '../components/GenericCard.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
@@ -152,11 +152,12 @@ const aboutPhoto = {
 
 		<!-- About Section -->
 		<section id="about" class="wrapper stack gap-10">
-			<About
+			<GenericCard
 				title={t('about.title')}
 				tagline={t('about.tagline')}
 				cards={aboutCards}
 				photo={aboutPhoto}
+				gridColumns={2}
 			/>
 		</section>
 

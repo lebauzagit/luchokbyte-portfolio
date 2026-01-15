@@ -2,41 +2,54 @@
 import Hero from './Hero.astro';
 import Icon from './Icon.astro';
 
-interface AboutCard {
-	icon: keyof typeof import('./IconPaths').iconPaths;
+interface CardItem {
+	icon?: keyof typeof import('./IconPaths').iconPaths;
 	title: string;
 	content: string | string[];
 }
 
-interface AboutProps {
-	title: string;
-	tagline: string;
-	cards: AboutCard[];
+interface GenericCardProps {
+	// Hero section (optional)
+	title?: string;
+	tagline?: string;
+
+	// Cards section
+	cards: CardItem[];
+
+	// Photo/Media section (optional)
 	photo?: {
 		src: string;
 		alt: string;
 		overlayText?: string;
 		width?: string;
 	};
-}
 
-const { title, tagline, cards, photo } = Astro.props as AboutProps;
+	// Customization options
+	sectionClass?: string;
+	cardsClass?: string;
+	gridColumns?: number;
+	showIcons?: boolean;
+}
 ---
 
-<main class="about">
-	<Hero title={title} tagline={tagline} />
+<main class:list={['generic-section', Astro.props.sectionClass]}>
+	{ Astro.props.title && (
+		<Hero title={Astro.props.title} tagline={Astro.props.tagline || ''} />
+	)}
 
-	<section class="about-cards">
-		{cards.map((card) => (
-			<div class="about-card">
-				<div class="card-icon">
-					<Icon icon={card.icon} color="var(--accent-regular)" size="2.5rem" />
-				</div>
+	<section class:list={['cards-grid', Astro.props.cardsClass]} style={`--grid-columns: ${Astro.props.gridColumns || 1}`}>
+		{Astro.props.cards.map((card: CardItem) => (
+			<div class="card-item">
+				{ (Astro.props.showIcons !== false && card.icon) && (
+					<div class="card-icon">
+						<Icon icon={card.icon} color="var(--accent-regular)" size="2.5rem" />
+					</div>
+				)}
 				<h3 class="card-title">{card.title}</h3>
 				<div class="card-content">
 					{Array.isArray(card.content) ? (
 						<>
-							{card.content.map((paragraph) => (
+							{card.content.map((paragraph: string) => (
 								<p set:html={paragraph}></p>
 							))}
 						</>
@@ -48,17 +61,17 @@ const { title, tagline, cards, photo } = Astro.props as AboutProps;
 		))}
 	</section>
 
-	{photo && (
-		<section class="about-photo">
-			<div class="photo-container">
+	{Astro.props.photo && (
+		<section class="media-section">
+			<div class="media-container">
 				<img
-					width={photo.width || "800px"}
-					src={photo.src}
-					alt={photo.alt}
+					width={Astro.props.photo.width || "800px"}
+					src={Astro.props.photo.src}
+					alt={Astro.props.photo.alt}
 				/>
-				{photo.overlayText && (
-					<div class="photo-overlay">
-						<p>{photo.overlayText}</p>
+				{Astro.props.photo.overlayText && (
+					<div class="media-overlay">
+						<p>{Astro.props.photo.overlayText}</p>
 					</div>
 				)}
 			</div>
@@ -67,15 +80,15 @@ const { title, tagline, cards, photo } = Astro.props as AboutProps;
 </main>
 
 <style>
-	/* About Cards Styling */
-	.about-cards {
+	/* Generic Cards Grid */
+	.cards-grid {
 		display: grid;
-		grid-template-columns: 1fr;
+		grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
 		gap: 2rem;
 		margin: 3rem 0;
 	}
 
-	.about-card {
+	.card-item {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -122,14 +135,14 @@ const { title, tagline, cards, photo } = Astro.props as AboutProps;
 		font-weight: 600;
 	}
 
-	/* About Photo Section */
-	.about-photo {
+	/* Media Section */
+	.media-section {
 		margin-top: 3rem;
 		display: flex;
 		justify-content: center;
 	}
 
-	.photo-container {
+	.media-container {
 		position: relative;
 		border-radius: 1.5rem;
 		overflow: hidden;
@@ -137,13 +150,13 @@ const { title, tagline, cards, photo } = Astro.props as AboutProps;
 		max-width: 800px;
 	}
 
-	.photo-container img {
+	.media-container img {
 		width: 100%;
 		height: auto;
 		display: block;
 	}
 
-	.photo-overlay {
+	.media-overlay {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -153,20 +166,20 @@ const { title, tagline, cards, photo } = Astro.props as AboutProps;
 		color: white;
 	}
 
-	.photo-overlay p {
+	.media-overlay p {
 		font-style: italic;
 		font-size: var(--text-lg);
 		margin: 0;
 		text-align: center;
 	}
 
+	/* Responsive Design */
 	@media (min-width: 50em) {
-		.about-cards {
-			grid-template-columns: repeat(2, 1fr);
+		.cards-grid {
 			gap: 3rem;
 		}
 
-		.about-card {
+		.card-item {
 			padding: 2.5rem;
 		}
 
@@ -176,8 +189,6 @@ const { title, tagline, cards, photo } = Astro.props as AboutProps;
 	}
 
 	@media (min-width: 60em) {
-		.about-cards {
-			grid-template-columns: repeat(2, 1fr);
-		}
+		/* Allow for more columns on larger screens if gridColumns > 2 */
 	}
 </style>
