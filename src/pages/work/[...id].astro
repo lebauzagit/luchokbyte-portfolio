@@ -55,6 +55,20 @@ const backHref = `${prefix}/#projects`;
 		.project img { max-width: 100%; border-radius: 0.75rem; box-shadow: var(--shadow-sm); }
 		.project-title { margin: 0; font-size: 1.75rem; }
 		.project-date { color: var(--muted); margin-bottom: 1rem; }
-		.back-link { display: inline-flex; gap: 0.5rem; text-decoration: none; color: var(--accent-regular); }
+		.project-fallback {
+			margin: 0.5rem 0 0;
+			padding: 0.5rem 0.75rem;
+			background: var(--accent-subtle);
+			border-radius: 0.5rem;
+			color: var(--accent-regular);
+			font-size: var(--text-sm);
+		}
+		.back-link { 
+			display: inline-flex; 
+			gap: 0.5rem; 
+			text-decoration: none; 
+			color: var(--accent-regular);
+			margin-top: 1rem; 
+		}
 	</style>
 </BaseLayout>

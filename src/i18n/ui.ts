@@ -41,7 +41,7 @@ export const ui = {
 		
 		'projects.title': 'Projects',
 		'projects.tagline': 'See my most recent projects below to get an idea of my past experience.',
-		'project.back': 'Back to projects',
+		'project.back': 'Back',
 		'project.published': 'Published',
 		'project.fallback': 'This project is not available in Spanish yet. Showing the English version.',
 		
@@ -120,7 +120,7 @@ export const ui = {
 		
 		'projects.title': 'Proyectos',
 		'projects.tagline': 'Mira mis proyectos más recientes para tener una idea de mi experiencia pasada.',
-		'project.back': 'Volver a proyectos',
+		'project.back': 'Volver',
 		'project.published': 'Publicado',
 		'project.fallback': 'Este proyecto aún no está disponible en español. Mostrando la versión en inglés.',
 		

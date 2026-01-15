@@ -11,12 +11,19 @@
   "dependencies": {
     "@astrojs/check": "^0.9.6",
     "@astrojs/mdx": "^4.3.13",
+    "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.9",
     "astro-i18n-aut": "^0.7.3",
+    "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
     "prettier": "^3.7.4",
     "prettier-plugin-astro": "^0.14.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "^6.4.1"
+    }
   }
 }
