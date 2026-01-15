@@ -38,10 +38,11 @@ const href = `${prefix}/work/${normalizedSlug}`;
 		font-family: var(--font-brand);
 		font-size: var(--text-lg);
 		font-weight: 500;
-		transition: box-shadow var(--theme-transition);
+		transition: transform 0.3s ease, box-shadow var(--theme-transition);
 	}
 
 	.card:hover {
+		transform: translateY(-5px);
 		box-shadow: var(--shadow-md);
 	}
 
