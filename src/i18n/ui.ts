@@ -77,7 +77,7 @@ export const ui = {
 		'contact.success': '✓ Message sent successfully! I\'ll get back to you soon.',
 		'contact.error': '✗ Something went wrong. Please try again or email me directly.',
 		'contact.placeholder.name': 'Name',
-		'contact.placeholder.email': 'your.email@example.com',
+		'contact.placeholder.email': 'email@example.com',
 		'contact.placeholder.company': 'Optional',
 		'contact.placeholder.subject': 'What\'s this about?',
 		'contact.placeholder.message': 'Tell me about your project or collaboration idea...',
