@@ -1,16 +1,16 @@
 ---
-import Icon from './Icon.astro';
-
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
 	<div class="group">
 		<p>
-			Designed & Developed in North Bergen, NJ with <a href="https://astro.build/">Astro</a>
-			<Icon icon="rocket-launch" size="1.2em" />
+			{t('footer.designed')} <a href="https://astro.build/">Astro</a>
 		</p>
-		<p>&copy; {currentYear} Luis Bauza</p>
+		<p>&copy; {currentYear} Luis Enrique Bauza</p>
 	</div>
 </footer>
 <style>
