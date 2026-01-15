@@ -7,14 +7,19 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 export async function getStaticPaths() {
 	const entries = await getCollection('work');
-	const baseEntries = entries.filter((entry) => !(entry.slug || '').startsWith('es/'));
-	return baseEntries.map((entry) => ({
-		params: { id: entry.slug ?? entry.id },
-		props: { entry },
-	}));
+	const bySlug = new Map(entries.map((entry) => [entry.slug ?? entry.id, entry]));
+	const baseEntries = entries.filter((entry) => !(entry.slug || '').startsWith('en/'));
+	return baseEntries.map((entry) => {
+		const slug = entry.slug ?? entry.id;
+		const localized = bySlug.get(`en/${slug}`);
+		return {
+			params: { id: slug },
+			props: { entry: localized ?? entry, isFallback: !localized },
+		};
+	});
 }
 
-const { entry } = Astro.props;
+const { entry, isFallback } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -37,6 +42,9 @@ const backHref = `${prefix}/#projects`;
 
 		<header>
 			<h1 class="project-title">{entry.data.title}</h1>
+			{isFallback && (
+				<p class="project-fallback">{t('project.fallback')}</p>
+			)}
 			<p class="project-date">
 				{t('project.published')}: {new Date(entry.data.publishDate).toLocaleDateString()}
 			</p>
