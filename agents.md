@@ -1194,6 +1194,27 @@ i18n: {
 
 ---
 
+## ⚠️ Advertencias Importantes
+
+### Documentación vs Desarrollo de Software
+Cuando se describan proyectos en las tarjetas `projectCards`, **SIEMPRE distinguir claramente** entre:
+- **Documentar aplicaciones**: Crear guías, manuales, documentación técnica, sistemas de ayuda, plataformas de soporte
+- **Desarrollar aplicaciones**: Construir código, APIs, interfaces, funcionalidades, arquitecturas técnicas
+
+**Ejemplos correctos:**
+- ✅ "Creé la plataforma de documentación completa para las aplicaciones móviles AIMove"
+- ✅ "Desarrollé el sistema de documentación multi-layout para AIMove Hub"
+- ✅ "Implementé interfaces de documentación especializada para aplicaciones móviles"
+
+**Ejemplos incorrectos (evitar):**
+- ❌ "Desarrollé las aplicaciones móviles AIMove con React Native"
+- ❌ "Construí las APIs móviles y funcionalidades offline"
+- ❌ "Implementé la arquitectura PWA y gestos táctiles"
+
+**Por qué importa:** Evitar reclamar crédito por trabajo que no se realizó. Si solo se documentaron aplicaciones existentes, enfatizar el trabajo de documentación, no el desarrollo de las aplicaciones mismas.
+
+---
+
 ## 📝 Changelog Template
 
 Al hacer cambios significativos, documentar en este formato:

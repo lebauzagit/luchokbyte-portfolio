@@ -28,36 +28,36 @@ Brothers Truck Repair FL necesitaba un sitio web que pudiera:
 Desarrollé un sitio web integral de servicios que combina presentación profesional con funcionalidad práctica:
 
 #### Diseño Centrado en Servicios
-- **Destacado de Expertise**: Creé secciones dedicadas para reparación Walking Floor, soldadura de aluminio y mantenimiento integral de camiones
-- **Claridad de Servicios**: Desarrollé descripciones claras de servicios con desgloses detallados de procesos de reparación y cronogramas
-- **Construcción de Confianza**: Incorporé fotografía profesional y explicaciones detalladas de servicios para construir confianza
-- **Reserva Directa**: Implementé botones prominentes "Solicitar Servicio" para acción inmediata del cliente
+**Destacado de Expertise**: Creé secciones dedicadas para reparación Walking Floor, soldadura de aluminio y mantenimiento integral de camiones
+**Claridad de Servicios**: Desarrollé descripciones claras de servicios con desgloses detallados de procesos de reparación y cronogramas
+**Construcción de Confianza**: Incorporé fotografía profesional y explicaciones detalladas de servicios para construir confianza
+**Reserva Directa**: Implementé botones prominentes "Solicitar Servicio" para acción inmediata del cliente
 
 #### Sistema de Gestión de Catálogo
-- **Base de Datos Extensa de Piezas**: Construí un sistema de catálogo dinámico con 12+ categorías de piezas para camiones y remolques
-- **Funcionalidad de Búsqueda**: Integré búsqueda intuitiva y filtrado para fácil descubrimiento de piezas
-- **Inventario Visual**: Creé galerías de imágenes para identificación y selección de piezas
-- **Gestión de Stock**: Diseñé estructura escalable de catálogo para actualizaciones continuas de inventario de piezas
+**Base de Datos Extensa de Piezas**: Construí un sistema de catálogo dinámico con 12+ categorías de piezas para camiones y remolques
+**Funcionalidad de Búsqueda**: Integré búsqueda intuitiva y filtrado para fácil descubrimiento de piezas
+**Inventario Visual**: Creé galerías de imágenes para identificación y selección de piezas
+**Gestión de Stock**: Diseñé estructura escalable de catálogo para actualizaciones continuas de inventario de piezas
 
 #### Optimización para Negocios Locales
-- **Integración de Ubicación**: Presentación prominente de dirección de Tampa (1620 S 51st St) con Google Maps integrado
-- **Optimización de Contacto**: Múltiples métodos de contacto (teléfono, email, ubicación) para diferentes preferencias de cliente
-- **Fundamento SEO Local**: Implementé markup de schema apropiado y optimización de contenido basado en ubicación
-- **Conexión Comunitaria**: Integré enlaces de redes sociales (Facebook, Instagram, TikTok, LinkedIn) para engagement de clientes
+**Integración de Ubicación**: Presentación prominente de dirección de Tampa (1620 S 51st St) con Google Maps integrado
+**Optimización de Contacto**: Múltiples métodos de contacto (teléfono, email, ubicación) para diferentes preferencias de cliente
+**Fundamento SEO Local**: Implementé markup de schema apropiado y optimización de contenido basado en ubicación
+**Conexión Comunitaria**: Integré enlaces de redes sociales (Facebook, Instagram, TikTok, LinkedIn) para engagement de clientes
 
 #### Implementación de Estrategia de Contenido
-- **Blog Educativo**: Construí una plataforma de contenido para consejos de reparación, guías de resolución de problemas y consejos de mantenimiento
-- **Portfolio de Trabajos**: Creé secciones de galería mostrando reparaciones completadas y fabricaciones personalizadas
-- **Autoridad en la Industria**: Posicioné el negocio como líder intelectual en reparación de camiones y remolques
-- **Educación al Cliente**: Proporcioné recursos valiosos para ayudar a clientes a entender necesidades de reparación
+**Blog Educativo**: Construí una plataforma de contenido para consejos de reparación, guías de resolución de problemas y consejos de mantenimiento
+**Portfolio de Trabajos**: Creé secciones de galería mostrando reparaciones completadas y fabricaciones personalizadas
+**Autoridad en la Industria**: Posicioné el negocio como líder intelectual en reparación de camiones y remolques
+**Educación al Cliente**: Proporcioné recursos valiosos para ayudar a clientes a entender necesidades de reparación
 
 ### Características Clave Entregadas
-- **Sección Hero**: Titular impactante "Especialistas en Reparación de Remolques Walking Floor y Soldadura" con CTA de solicitud directa de servicio
-- **Cuadrícula de Servicios**: Tarjetas interactivas de servicios para Reparación Walking Floor, Soldadura de Aluminio, Mantenimiento de Camiones y Suministro de Piezas
-- **Catálogo de Piezas**: Catálogo extenso con 12+ categorías de piezas y capacidades de búsqueda visual
-- **Galería de Trabajos**: Galería fotográfica profesional mostrando trabajos de reparación y capacidades de taller
-- **Plataforma de Blog**: Contenido educativo sobre mantenimiento de camiones, consejos de reparación y insights de la industria
-- **Integración de Contacto**: Múltiples métodos de contacto con mapas integrados y enlaces directos de teléfono/email
+**Sección Hero**: Titular impactante "Especialistas en Reparación de Remolques Walking Floor y Soldadura" con CTA de solicitud directa de servicio
+**Cuadrícula de Servicios**: Tarjetas interactivas de servicios para Reparación Walking Floor, Soldadura de Aluminio, Mantenimiento de Camiones y Suministro de Piezas
+**Catálogo de Piezas**: Catálogo extenso con 12+ categorías de piezas y capacidades de búsqueda visual
+**Galería de Trabajos**: Galería fotográfica profesional mostrando trabajos de reparación y capacidades de taller
+**Plataforma de Blog**: Contenido educativo sobre mantenimiento de camiones, consejos de reparación y insights de la industria
+**Integración de Contacto**: Múltiples métodos de contacto con mapas integrados y enlaces directos de teléfono/email
 
 ### Tecnologías Dominadas
 - Sistemas de gestión de catálogo para inventario de piezas
@@ -73,14 +73,14 @@ Desarrollé un sitio web integral de servicios que combina presentación profesi
 El sitio web de Brothers Truck Repair FL transformó su presencia local, creando un showroom digital que complementa su taller físico. El catálogo integral de piezas y presentación clara de servicios ayudó a clientes a entender sus ofertas, mientras que el sistema de reserva directa agilizó la adquisición de clientes y redujo sobrecarga administrativa.
 
 ### Habilidades Demostradas
-- **Sitios Web de Negocios de Servicios**: Creando presencia online efectiva para proveedores de servicios locales
-- **Gestión de Catálogo**: Construyendo sistemas escalables de catálogo de productos/piezas
-- **Optimización SEO Local**: Optimizando sitios web para búsquedas basadas en ubicación y clientes locales
-- **Generación de Leads**: Implementando solicitud directa de servicios y sistemas de captura de contacto
-- **Estrategia de Contenido**: Desarrollando contenido educativo que construye autoridad en la industria
-- **Experiencia de Usuario**: Diseñando interfaces intuitivas para uso comercial práctico
-- **Integración Técnica**: Integrando fluidamente múltiples sistemas de contacto y reserva
-- **Comunicación Visual**: Presentando efectivamente servicios técnicos a audiencias no técnicas
+**Sitios Web de Negocios de Servicios**: Creando presencia online efectiva para proveedores de servicios locales
+**Gestión de Catálogo**: Construyendo sistemas escalables de catálogo de productos/piezas
+**Optimización SEO Local**: Optimizando sitios web para búsquedas basadas en ubicación y clientes locales
+**Generación de Leads**: Implementando solicitud directa de servicios y sistemas de captura de contacto
+**Estrategia de Contenido**: Desarrollando contenido educativo que construye autoridad en la industria
+**Experiencia de Usuario**: Diseñando interfaces intuitivas para uso comercial práctico
+**Integración Técnica**: Integrando fluidamente múltiples sistemas de contacto y reserva
+**Comunicación Visual**: Presentando efectivamente servicios técnicos a audiencias no técnicas
 
 Este proyecto representa mi compromiso con apoyar negocios locales a través de la tecnología. Si buscas un desarrollador que entiende las necesidades únicas de negocios basados en servicios y puede crear sitios web que impulsan resultados comerciales reales, [conectemos y discutamos tu proyecto](/es/#contact).
 

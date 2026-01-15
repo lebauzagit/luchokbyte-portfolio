@@ -26,29 +26,29 @@ DyneLink needed a modern, professional website that would:
 I designed and developed a responsive, bilingual website that perfectly captures DyneLink's innovative spirit:
 
 #### Technical Implementation
-- **Modern Frontend Stack**: Leveraged Vue.js, React, and Angular components for dynamic, interactive elements
-- **Styling Excellence**: Implemented Tailwind CSS for responsive design and consistent branding
-- **AI Integration Showcase**: Highlighted cutting-edge AI technologies like GPT, Gemini, DeepSeek, and Grok
-- **Mobile-First Design**: Ensured seamless experience across all devices using Flutter and React Native principles
+**Modern Frontend Stack**: Leveraged Vue.js, React, and Angular components for dynamic, interactive elements
+**Styling Excellence**: Implemented Tailwind CSS for responsive design and consistent branding
+**AI Integration Showcase**: Highlighted cutting-edge AI technologies like GPT, Gemini, DeepSeek, and Grok
+**Mobile-First Design**: Ensured seamless experience across all devices using Flutter and React Native principles
 
 #### Design Excellence
-- **Clean, Professional Layout**: Created an intuitive navigation structure that guides users through services and projects
-- **Visual Hierarchy**: Used strategic typography and spacing to emphasize key information
-- **Brand Consistency**: Maintained cohesive visual identity across all sections
-- **User Experience Focus**: Implemented smooth animations and interactions for enhanced engagement
+**Clean, Professional Layout**: Created an intuitive navigation structure that guides users through services and projects
+**Visual Hierarchy**: Used strategic typography and spacing to emphasize key information
+**Brand Consistency**: Maintained cohesive visual identity across all sections
+**User Experience Focus**: Implemented smooth animations and interactions for enhanced engagement
 
 #### Bilingual Support
-- **Complete Localization**: Developed full English and Spanish versions of the site
-- **Cultural Adaptation**: Ensured content resonated with both markets
-- **SEO Optimization**: Implemented proper meta tags and structured data for both languages
+**Complete Localization**: Developed full English and Spanish versions of the site
+**Cultural Adaptation**: Ensured content resonated with both markets
+**SEO Optimization**: Implemented proper meta tags and structured data for both languages
 
 ### Key Features Delivered
-- **Hero Section**: Compelling headline "BUILD DIGITAL LINK TO STARTUP" with clear call-to-action
-- **Services Showcase**: Interactive cards highlighting Web Software, Artificial Intelligence, Mobile Apps, and SEO/Marketing
-- **Projects Portfolio**: Featured their flagship SaaS solution, Axis Hub
-- **Team Section**: Professional presentation of their development expertise
-- **Contact Integration**: Seamless lead generation forms
-- **Blog Platform**: Content management system for technical articles
+**Hero Section**: Compelling headline "BUILD DIGITAL LINK TO STARTUP" with clear call-to-action
+**Services Showcase**: Interactive cards highlighting Web Software, Artificial Intelligence, Mobile Apps, and SEO/Marketing
+**Projects Portfolio**: Featured their flagship SaaS solution, Axis Hub
+**Team Section**: Professional presentation of their development expertise
+**Contact Integration**: Seamless lead generation forms
+**Blog Platform**: Content management system for technical articles
 
 ### Technologies Mastered
 - Vue.js, React, Angular for frontend development
@@ -62,12 +62,12 @@ I designed and developed a responsive, bilingual website that perfectly captures
 This landing page successfully positions DyneLink as a leader in AI-powered software development, effectively communicating their technical expertise and innovative approach. The bilingual design expanded their market reach, while the modern, professional aesthetic built immediate credibility with potential clients.
 
 ### Skills Demonstrated
-- **Full-Stack Development**: End-to-end website creation from concept to deployment
-- **UI/UX Design**: User-centered design principles and modern aesthetics
-- **AI Integration**: Understanding of cutting-edge AI technologies and their applications
-- **Internationalization**: Bilingual website development and localization
-- **Performance Optimization**: Fast-loading, SEO-optimized web experiences
-- **Cross-Platform Compatibility**: Responsive design across all devices
+**Full-Stack Development**: End-to-end website creation from concept to deployment
+**UI/UX Design**: User-centered design principles and modern aesthetics
+**AI Integration**: Understanding of cutting-edge AI technologies and their applications
+**Internationalization**: Bilingual website development and localization
+**Performance Optimization**: Fast-loading, SEO-optimized web experiences
+**Cross-Platform Compatibility**: Responsive design across all devices
 
 This project represents my passion for creating digital solutions that bridge technology and business success. If you're looking for a developer who can transform your vision into compelling digital experiences, [let's connect and discuss your next project](/es/#contact).
 
