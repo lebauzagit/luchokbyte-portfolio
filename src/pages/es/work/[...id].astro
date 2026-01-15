@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProjectImage from '../../../components/ProjectImage.astro';
+import { defaultLang } from '../../../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+	const entries = await getCollection('work');
+	const bySlug = new Map(entries.map((entry) => [entry.slug ?? entry.id, entry]));
+	const baseEntries = entries.filter((entry) => !(entry.slug || '').startsWith('es/'));
+	return baseEntries.map((entry) => {
+		const slug = entry.slug ?? entry.id;
+		const localized = bySlug.get(`es/${slug}`);
+		return {
+			params: { id: slug },
+			props: { entry: localized ?? entry, isFallback: !localized },
+		};
+	});
+}
+
+const { entry, isFallback } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+if (!entry) {
+	throw new Response('Not found', { status: 404 });
+}
+
+const { Content } = await entry.render();
+const prefix = lang !== defaultLang ? `/${lang}` : '';
+const backHref = `${prefix}/#projects`;
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+	<article class="project wrapper stack gap-6">
+		<nav>
+			<a class="back-link" href={backHref}>
+				← {t('project.back')}
+			</a>
+		</nav>
+
+		<header>
+			<h1 class="project-title">{entry.data.title}</h1>
+			{isFallback && (
+				<p class="project-fallback">{t('project.fallback')}</p>
+			)}
+			<p class="project-date">
+				{t('project.published')}: {new Date(entry.data.publishDate).toLocaleDateString()}
+			</p>
+		</header>
+
+		<figure>
+			<ProjectImage src={entry.data.img} alt={entry.data.img_alt || entry.data.title} />
+		</figure>
+
+		<section class="project-body">
+			<Content />
+		</section>
+	</article>
+
+	<style>
+		.project img { max-width: 100%; border-radius: 0.75rem; box-shadow: var(--shadow-sm); }
+		.project-title { margin: 0; font-size: 1.75rem; }
+		.project-date { color: var(--muted); margin-bottom: 1rem; }
+		.project-fallback {
+			margin: 0.5rem 0 0;
+			padding: 0.5rem 0.75rem;
+			background: var(--accent-subtle);
+			border-radius: 0.5rem;
+			color: var(--accent-regular);
+			font-size: var(--text-sm);
+		}
+		.back-link { 
+			display: inline-flex; 
+			gap: 0.5rem; 
+			text-decoration: none; 
+			color: var(--accent-regular); 
+			margin-top: 1rem; 
+		}
+	</style>
+</BaseLayout>
