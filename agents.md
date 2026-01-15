@@ -10,6 +10,7 @@
 - [Internacionalización (i18n)](#internacionalización-i18n)
 - [Gestión de Paquetes](#gestión-de-paquetes)
 - [Mejores Prácticas](#mejores-prácticas)
+- [Advertencias Importantes](#advertencias-importantes)
 
 ---
 
@@ -1197,21 +1198,31 @@ i18n: {
 ## ⚠️ Advertencias Importantes
 
 ### Documentación vs Desarrollo de Software
-Cuando se describan proyectos en las tarjetas `projectCards`, **SIEMPRE distinguir claramente** entre:
+Dado que el equipo de trabajo está dividido en tres divisiones (backend, mobile, y frontend), **SIEMPRE distinguir claramente** entre:
 - **Documentar aplicaciones**: Crear guías, manuales, documentación técnica, sistemas de ayuda, plataformas de soporte
 - **Desarrollar aplicaciones**: Construir código, APIs, interfaces, funcionalidades, arquitecturas técnicas
 
-**Ejemplos correctos:**
+**Como desarrollador frontend, solo reclamar crédito por:**
+- ✅ **Trabajo frontend**: Desarrollo de interfaces web, componentes, sistemas de documentación
+- ✅ **Documentación**: Creación de plataformas de documentación, guías de usuario, sistemas de ayuda
+- ✅ **Trabajo relacionado**: Integración frontend con sistemas existentes
+
+**NO reclamar crédito por trabajo de otras divisiones:**
+- ❌ **Desarrollo backend**: APIs, bases de datos, lógica del servidor
+- ❌ **Desarrollo mobile**: Apps nativas, funcionalidades móviles, arquitectura móvil
+- ❌ **Trabajo de otras divisiones**: A menos que se haya contribuido específicamente
+
+**Ejemplos correctos (como frontend developer):**
 - ✅ "Creé la plataforma de documentación completa para las aplicaciones móviles AIMove"
 - ✅ "Desarrollé el sistema de documentación multi-layout para AIMove Hub"
 - ✅ "Implementé interfaces de documentación especializada para aplicaciones móviles"
 
-**Ejemplos incorrectos (evitar):**
-- ❌ "Desarrollé las aplicaciones móviles AIMove con React Native"
-- ❌ "Construí las APIs móviles y funcionalidades offline"
-- ❌ "Implementé la arquitectura PWA y gestos táctiles"
+**Ejemplos incorrectos (evitar reclamar trabajo de otras divisiones):**
+- ❌ "Desarrollé las aplicaciones móviles AIMove con React Native" (trabajo de división mobile)
+- ❌ "Construí las APIs móviles y funcionalidades offline" (trabajo de división backend)
+- ❌ "Implementé la arquitectura PWA y gestos táctiles" (trabajo de división mobile)
 
-**Por qué importa:** Evitar reclamar crédito por trabajo que no se realizó. Si solo se documentaron aplicaciones existentes, enfatizar el trabajo de documentación, no el desarrollo de las aplicaciones mismas.
+**Por qué importa:** Evitar reclamar crédito por trabajo que pertenece a otras divisiones del equipo. Como frontend developer, el foco debe estar en interfaces web y documentación, no en funcionalidades backend o mobile desarrolladas por otras divisiones.
 
 ---
 

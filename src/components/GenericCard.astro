@@ -37,6 +37,23 @@ interface GenericCardProps {
 		<Hero title={Astro.props.title} tagline={Astro.props.tagline || ''} />
 	)}
 
+	{Astro.props.photo && (
+		<section class="media-section mb-8!">
+			<div class="media-container">
+				<img
+					width={Astro.props.photo.width || "1200px"}
+					src={Astro.props.photo.src}
+					alt={Astro.props.photo.alt}
+				/>
+				{Astro.props.photo.overlayText && (
+					<div class="media-overlay">
+						<p>{Astro.props.photo.overlayText}</p>
+					</div>
+				)}
+			</div>
+		</section>
+	)}
+
 	<section class:list={['cards-grid', Astro.props.cardsClass]} style={`--grid-columns: ${Astro.props.gridColumns || 1}`}>
 		{Astro.props.cards.map((card: CardItem) => (
 			<div class="card-item">
@@ -61,22 +78,7 @@ interface GenericCardProps {
 		))}
 	</section>
 
-	{Astro.props.photo && (
-		<section class="media-section mb-8!">
-			<div class="media-container">
-				<img
-					width={Astro.props.photo.width || "800px"}
-					src={Astro.props.photo.src}
-					alt={Astro.props.photo.alt}
-				/>
-				{Astro.props.photo.overlayText && (
-					<div class="media-overlay">
-						<p>{Astro.props.photo.overlayText}</p>
-					</div>
-				)}
-			</div>
-		</section>
-	)}
+	
 </main>
 
 <style>
@@ -147,7 +149,7 @@ interface GenericCardProps {
 		border-radius: 1.5rem;
 		overflow: hidden;
 		box-shadow: var(--shadow-xl);
-		max-width: 800px;
+		max-width: 1022px;
 	}
 
 	.media-container img {
