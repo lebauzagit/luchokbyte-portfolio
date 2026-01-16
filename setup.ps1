@@ -1,6 +1,6 @@
 <#
-setup.ps1 - crea enlaces simbólicos por IA para cada skill.md (Windows-friendly)
-Uso: .\setup.ps1 claude gemini gpt
+setup.ps1 - creates AI-specific symlinks for each skill.md (Windows-friendly)
+Usage: .\setup.ps1 claude gemini gpt
 #>
 param(
     [Parameter(ValueFromRemainingArguments=$true)]
@@ -30,4 +30,4 @@ Get-ChildItem -Path skills -Directory | ForEach-Object {
     }
 }
 
-Write-Host 'setup.ps1 completed. Created model-specific links/copies for skills/'
+Write-Host 'setup.ps1 completed. Created model-specific links/copies for skills.'
