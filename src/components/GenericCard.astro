@@ -32,46 +32,49 @@ interface GenericCardProps {
 }
 ---
 
-<main class:list={['generic-section', Astro.props.sectionClass]}>
+<main class:list={['flex flex-col gap-8', Astro.props.sectionClass]}
+	style={`--grid-columns: ${Astro.props.gridColumns || 1}`}>
 	{ Astro.props.title && (
 		<Hero title={Astro.props.title} tagline={Astro.props.tagline || ''} />
 	)}
 
 	{Astro.props.photo && (
-		<section class="media-section mb-8!">
-			<div class="media-container">
+		<section class="flex justify-center my-8">
+			<div class="relative max-w-[64rem] rounded-3xl overflow-hidden shadow-2xl">
 				<img
 					width={Astro.props.photo.width || "1200px"}
 					src={Astro.props.photo.src}
 					alt={Astro.props.photo.alt}
+					class="w-full h-auto block"
 				/>
 				{Astro.props.photo.overlayText && (
-					<div class="media-overlay">
-						<p>{Astro.props.photo.overlayText}</p>
+					<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8 text-white">
+						<p class="italic text-lg text-center m-0">{Astro.props.photo.overlayText}</p>
 					</div>
 				)}
 			</div>
 		</section>
 	)}
 
-	<section class:list={['cards-grid', Astro.props.cardsClass]} style={`--grid-columns: ${Astro.props.gridColumns || 1}`}>
+	<section class:list={['grid gap-8 my-12', Astro.props.cardsClass]}
+		style={`grid-template-columns: repeat(var(--grid-columns, 1), 1fr)`}>
 		{Astro.props.cards.map((card: CardItem) => (
-			<div class="card-item">
+			<div class="flex flex-col items-start text-left p-8 border border-gray-800 rounded-3xl bg-black/5 backdrop-blur-sm transition-transform duration-300 ease-in-out hover:scale-[1.02]">
 				{ (Astro.props.showIcons !== false && card.icon) && (
-					<div class="card-icon">
+					<div class="mb-6 p-4 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 shadow-md">
 						<Icon icon={card.icon} color="var(--accent-regular)" size="2.5rem" />
 					</div>
 				)}
-				<h3 class="card-title">{card.title}</h3>
-				<div class="card-content">
+				<h3 class="text-xl font-semibold text-gray-0 mb-4">{card.title}</h3>
+				<div class="text-gray-300 leading-6 text-left">
 					{Array.isArray(card.content) ? (
 						<>
 							{card.content.map((paragraph: string) => (
-								<p set:html={paragraph}></p>
+								<p set:html={paragraph} class="mb-4 last:mb-0"></p>
 							))}
 						</>
 					) : (
-						<p set:html={card.content}></p>
+						<p set:html={card.content} class="mb-4 last:mb-0"></p>
 					)}
 				</div>
 			</div>
@@ -82,115 +85,9 @@ interface GenericCardProps {
 </main>
 
 <style>
-	/* Generic Cards Grid */
-	.cards-grid {
-		display: grid;
-		grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
-		gap: 2rem;
-		margin: 3rem 0;
-	}
-
-	.card-item {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		text-align: left;
-		padding: 2rem;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		background: rgba(255, 255, 255, 0.02);
-		backdrop-filter: blur(10px);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-	}
-
-	.card-icon {
-		margin-bottom: 1.5rem;
-		padding: 1rem;
-		border-radius: 50%;
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-md);
-	}
-
-	.card-title {
-		font-size: var(--text-xl);
-		font-weight: 600;
-		color: var(--gray-0);
-		margin-bottom: 1rem;
-	}
-
-	.card-content {
-		color: var(--gray-300);
-		line-height: 1.6;
-		text-align: left;
-	}
-
-	.card-content p {
-		margin-bottom: 1rem;
-	}
-
-	.card-content p:last-child {
-		margin-bottom: 0;
-	}
-
+	/* Estilos críticos que no pueden expresarse con Tailwind */
 	.card-content strong {
 		color: var(--accent-regular);
 		font-weight: 600;
-	}
-
-	/* Media Section */
-	.media-section {
-		margin-top: 3rem;
-		display: flex;
-		justify-content: center;
-	}
-
-	.media-container {
-		position: relative;
-		border-radius: 1.5rem;
-		overflow: hidden;
-		box-shadow: var(--shadow-xl);
-		max-width: 1022px;
-	}
-
-	.media-container img {
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-
-	.media-overlay {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-		padding: 2rem 1.5rem 1.5rem;
-		color: white;
-	}
-
-	.media-overlay p {
-		font-style: italic;
-		font-size: var(--text-lg);
-		margin: 0;
-		text-align: center;
-	}
-
-	/* Responsive Design */
-	@media (min-width: 50em) {
-		.cards-grid {
-			gap: 3rem;
-		}
-
-		.card-item {
-			padding: 2.5rem;
-		}
-
-		.card-title {
-			font-size: var(--text-2xl);
-		}
-	}
-
-	@media (min-width: 60em) {
-		/* Allow for more columns on larger screens if gridColumns > 2 */
 	}
 </style>

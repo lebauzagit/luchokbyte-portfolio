@@ -795,7 +795,7 @@ pnpm remove nombre-paquete
 
 #### Uso
 ```bash
-pnpm dev      # Iniciar desarrollo en http://localhost:4321
+pnpm dev --open      # Iniciar desarrollo en http://localhost:4321
 pnpm build    # Crear build optimizado en /dist
 pnpm preview  # Previsualizar build localmente
 ```

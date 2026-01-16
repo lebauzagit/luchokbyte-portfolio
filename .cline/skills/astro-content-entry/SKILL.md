@@ -10,7 +10,7 @@ Use this skill when the user asks to add or edit portfolio/work content.
 ## Scope
 - Collection: src/content/work
 - Locales: default and Spanish in src/content/work/es
-- File types: .md or .mdx
+- File types: .mdx
 
 ## Workflow
 1. Identify the target slug (file name) and locale(s).
@@ -18,6 +18,7 @@ Use this skill when the user asks to add or edit portfolio/work content.
 3. Update frontmatter and body content while preserving style and tone.
 4. If new entry, mirror structure between locales.
 5. Keep links and image paths consistent with public/assets.
+6. Update frontmatter keys as needed (e.g., date, tags).
 
 ## Requirements
 - Keep frontmatter keys consistent with existing entries.
