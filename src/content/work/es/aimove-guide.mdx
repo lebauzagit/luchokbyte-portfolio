@@ -1,8 +1,9 @@
 ---
-title: Plataforma de Guía de Usuario y Documentación de AIMove
+title: Documentación y Guía de Usuario de AIMove Hub Web y Móvil
 publishDate: 2024-03-01 00:00:00
-img: /assets/User_Guide_Dark.webp
-description:
+img: /assets/Guide_Cover_Dark.webp
+img_alt: Documentación integral para software de gestión de transporte y logística con arquitectura multi-layout.
+description: |
   Una sofisticada plataforma de documentación Nuxt 4 con arquitectura multi-layout, proporcionando guías de usuario integrales para el sistema de gestión de transporte de AIMove Hub en aplicaciones web y móviles.
 tags:
   - Documentación
@@ -10,88 +11,225 @@ tags:
   - Multi-layout
   - Empresarial
 ---
-import SectionCard from '../../../components/SectionCard.astro'
 
-## Arquitectando Documentación Integral para Software Empresarial de Logística
+import GenericCard from '../../../components/GenericCard.astro'
 
-Como desarrollador full-stack senior especializado en arquitecturas web complejas, lideré el desarrollo de la **Plataforma de Guía de Usuario y Documentación de AIMove** - una sofisticada aplicación Nuxt 4 que sirve como base de conocimientos integral para AIMove Hub, un sistema de gestión de transporte y logística de vanguardia. Este proyecto representó un pináculo en arquitectura multi-layout, entregando experiencias de documentación fluidas a través de diversos roles de usuario y variantes de aplicación.
+export const projectCardsWeb = [
+	{
+		title: "El Desafío",
+		icon: "rocket-launch",
+		content: [
+			"AIMove Hub es una compleja plataforma SaaS empresarial que gestiona transporte, operaciones de flota, cumplimiento de seguridad, mantenimiento y procesos financieros para compañías de logística. La plataforma de documentación necesitaba:",
+			"Soporte para 5 roles de usuario distintos: Gerentes de Hub, Operaciones, Seguridad, Finanzas y equipos de Mantenimiento",
+			"Proporcionar documentación separada para 4 variantes de aplicación: Hub Web, Hub Móvil, Conductores y Técnicos",
+			"Mantener patrones de navegación y diseño consistentes en todas las secciones de documentación",
+			"Permitir soporte multi-idioma (inglés/español) con cambio fluido",
+			"Entregar documentación rápida, buscable y accesible para usuarios empresariales",
+			"Integrarse con la aplicación AIMove Hub en vivo para ayuda contextual"
+		]
+	},
+	{
+		title: "Diseño de Arquitectura Multi-Layout",
+		icon: "stack",
+		content: [
+			"**Sistema de Layout Dinámico**: Implementé la característica multi-layout de Nuxt 4 para servir diferentes interfaces de documentación para aplicaciones web y móviles",
+			"**Entrega de Contenido Basado en Roles**: Creé enrutamiento inteligente que adapta contenido basado en roles de usuario (Gerente, Operaciones, Seguridad, Finanzas, Mantenimiento)",
+			"**Navegación Consciente del Contexto**: Desarrollé barras laterales dinámicas que muestran secciones de documentación relevantes basadas en el contexto de aplicación actual",
+			"**Estrategia de Contenido Unificado**: Establecí arquitectura de información consistente en todas las variantes de documentación mientras mantenía detalles específicos de plataforma"
+		]
+	},
+	{
+		title: "Implementación Técnica Avanzada",
+		icon: "stack-overflow",
+		content: [
+			"**Dominio de Multi-Layout Nuxt 4**: Utilicé el sistema de layout avanzado de Nuxt 4 para crear experiencias de documentación distintas para contextos web y móviles",
+			"**Enrutamiento Inteligente de Contenido**: Construí lógica de enrutamiento sofisticada que sirve documentación apropiada basada en parámetros de URL y contexto de usuario",
+			"**Arquitectura Optimizada para Rendimiento**: Implementé carga diferida, división de código y estrategias de caching para entrega rápida de documentación",
+			"**SEO y Accesibilidad**: Garanticé que toda documentación sea completamente accesible y optimizada para motores de búsqueda para usuarios empresariales"
+		]
+	},
+	{
+		title: "Excelencia en Gestión de Contenido",
+		icon: "file-text",
+		content: [
+			"**Cobertura de Documentación Integral**: Creé guías detalladas cubriendo login, navegación, operaciones CRUD, análisis de dashboard y flujos de trabajo específicos de módulos",
+			"**Ejemplos de Código Interactivos**: Integré ejemplos prácticos con resaltado de sintaxis y funcionalidad de copiar al portapapeles",
+			"**Documentación Visual**: Incorporé capturas de pantalla, diagramas de flujo e ilustraciones interactivas para mejorar la comprensión",
+			"**Actualizaciones Regulares de Contenido**: Establecí procesos para mantener documentación sincronizada con actualizaciones de software"
+		]
+	},
+	{
+		title: "Innovación en Experiencia de Usuario",
+		icon: "experience",
+		content: [
+			"**Búsqueda Contextual**: Implementé búsqueda inteligente que entiende roles de usuario y proporciona resultados relevantes",
+			"**Navegación de Ruta de Navegación**: Creé sistemas de navegación intuitivos que ayudan a usuarios a entender su ubicación dentro de la jerarquía de documentación",
+			"**Diseño Mobile-First**: Garanticé que toda documentación sea completamente responsiva y optimizada para consumo móvil",
+			"**Características de Progressive Web App**: Agregué capacidades offline y navegación tipo app para usuarios móviles"
+		]
+	},
+	{
+		title: "Características Clave Entregadas",
+		icon: "atom",
+		content: [
+			"**Sistema de Documentación Multi-Layout**: Interfaces de documentación separadas para aplicaciones web y móviles con branding consistente",
+			"**Control de Acceso Basado en Roles**: Entrega inteligente de contenido basada en roles y permisos de usuario",
+			"**Cobertura Integral**: Guías detalladas para todos los módulos de AIMove Hub (Gerente, Operaciones, Mantenimiento, Seguridad, Finanzas)",
+			"**Elementos Interactivos**: Ejemplos de código, capturas de pantalla y tutoriales interactivos",
+			"**Soporte Multi-Idioma**: Localización completa inglés/español con cambio fluido de idioma",
+			"**Búsqueda Avanzada**: Funcionalidad de búsqueda consciente del contexto con filtrado y etiquetado",
+			"**Integración en Vivo**: Enlaces directos a aplicación AIMove Hub para aprendizaje práctico"
+		]
+	},
+	{
+		title: "Tecnologías Dominadas",
+		icon: "technologies",
+		content: [
+			"Arquitectura multi-layout Nuxt 4 y enrutamiento avanzado",
+			"API de composición Vue.js para gestión de estado compleja",
+			"Componentes Nuxt UI para sistema de diseño consistente",
+			"Internacionalización (i18n) para soporte multi-idioma",
+			"Renderizado del lado del servidor (SSR) y generación estática",
+			"CSS avanzado con Tailwind CSS para diseño responsivo",
+			"Sistemas de gestión de contenido y procesamiento markdown",
+			"Técnicas de optimización de rendimiento y división de código"
+		]
+	},
+	{
+		title: "Impacto & Resultados",
+		icon: "trending",
+		content: [
+			"La Plataforma de Guía de Usuario y Documentación de AIMove se convirtió en la base de conocimientos autorizada para usuarios de AIMove Hub, mejorando significativamente la adopción de usuarios y reduciendo tickets de soporte. La arquitectura multi-layout abordó exitosamente la complejidad de documentar un sistema empresarial multi-rol y multi-plataforma, mientras que el diseño intuitivo aseguró que usuarios pudieran encontrar y aplicar rápidamente la información que necesitaban."
+		]
+	},
+	{
+		title: "Habilidades Demostradas",
+		icon: "code",
+		content: [
+			"**Desarrollo Avanzado Nuxt.js**: Expertise de nivel maestro en arquitectura multi-layout Nuxt 4",
+			"**Sistemas de Documentación Empresarial**: Diseñando bases de conocimientos integrales para productos de software complejos",
+			"**Estrategia de Contenido Multi-Plataforma**: Creando documentación unificada a través de aplicaciones web y móviles",
+			"**Arquitectura de Experiencia de Usuario**: Construyendo sistemas de navegación intuitivos para documentación a gran escala",
+			"**Integración de Escritura Técnica**: Combinando expertise de desarrollo con documentación clara y accionable",
+			"**Ingeniería de Rendimiento**: Optimizando sitios de documentación grandes para uso a escala empresarial",
+			"**Estrategia de Contenido**: Desarrollando arquitectura de información para sistemas de software complejos multi-rol",
+			"**Accesibilidad y SEO**: Garantizando que documentación sea accesible y descubrible por usuarios empresariales"
+		]
+	}
+]
 
-<SectionCard title="El Desafío" description="
-AIMove Hub es una compleja plataforma SaaS empresarial que gestiona transporte, operaciones de flota, cumplimiento de seguridad, mantenimiento y procesos financieros para compañías de logística. La plataforma de documentación necesitaba:"
->
-- Apoyar 5 roles de usuario distintos: Gerentes de Hub, Operaciones, Seguridad, Finanzas y equipos de Mantenimiento
-- Proporcionar documentación separada para 4 variantes de aplicación: Hub Web, Hub Móvil, Conductor Móvil y Técnico Móvil
-- Mantener patrones de navegación y diseño consistentes en todas las secciones de documentación
-- Permitir soporte multi-idioma (inglés/español) con cambio fluido
-- Entregar documentación rápida, buscable y accesible para usuarios empresariales
-- Integrarse con la aplicación AIMove Hub en vivo para ayuda contextual
-</SectionCard>
+export const projectCardsMobile = [
+	{
+		title: "Arquitectura de Documentación Móvil",
+		icon: "rocket-launch",
+		content: [
+			"Creé interfaces especializadas de documentación para aplicaciones móviles dentro del sistema multi-layout:",
+			"**Layouts Específicos para Móviles**: Desarrollé vistas dedicadas de documentación optimizadas para restricciones de pantalla móvil e interacción táctil",
+			"**Documentación de Variantes de Aplicación**: Creé rutas de documentación separadas para aplicaciones Hub Móvil, Conductor Móvil y Técnico Móvil",
+			"**Diseño Responsivo de Documentación**: Garanticé que todo el contenido de documentación se adapte fluidamente a través de diferentes tamaños de dispositivos móviles",
+			"**Patrones de Navegación Móvil**: Implementé estructuras de navegación amigables para móviles que reflejan experiencias de apps nativas",
+			"**Interfaces Optimizadas para Touch**: Diseñé interfaces de documentación que funcionan perfectamente con gestos táctiles y patrones de interacción móvil"
+		]
+	},
+	{
+		title: "Estrategia de Contenido Móvil",
+		icon: "stack",
+		content: [
+			"**Documentación Móvil Contextual**: Creé sistemas de entrega de documentación específicos por rol y aplicación",
+			"**Guías de Flujo de Trabajo Móvil**: Desarrollé guías integrales cubriendo flujos de trabajo de apps móviles, gestos e interacciones de usuario",
+			"**Acceso Offline a Documentación**: Implementé sistemas de documentación que funcionan sin conectividad a internet para uso en campo",
+			"**Búsqueda y Descubrimiento Móvil**: Construí interfaces de búsqueda optimizadas para móviles para acceso rápido a información en dispositivos móviles",
+			"**Divulgación Progresiva de Contenido**: Diseñé secciones de contenido expandibles que maximizan la densidad de información en pantallas pequeñas"
+		]
+	},
+	{
+		title: "Implementación de Documentación Móvil",
+		icon: "stack-overflow",
+		content: [
+			"**Integración de Layout Móvil**: Extendí el sistema multi-layout de Nuxt 4 para servir interfaces de documentación específicas para móviles",
+			"**Enrutamiento Adaptativo por Dispositivo**: Creé enrutamiento inteligente que sirve documentación apropiada basada en el tipo de dispositivo detectado",
+			"**Optimización de Rendimiento Móvil**: Aplicé optimizaciones específicas para móviles en la entrega de documentación",
+			"**Documentación Cross-Platform**: Garanticé experiencia consistente de documentación a través de navegadores móviles iOS y Android",
+			"**Gestión de Contenido Móvil**: Desarrollé sistemas para gestionar y actualizar contenido de documentación específico para móviles"
+		]
+	},
+	{
+		title: "Contenido de Documentación Móvil",
+		icon: "file-text",
+		content: [
+			"**Documentación de App Móvil de Conductor**: Creé guías integrales para uso de app móvil de conductor, navegación y flujos de trabajo",
+			"**Documentación Móvil de Técnico**: Desarrollé documentación detallada para características de app móvil de técnico y operaciones de campo",
+			"**Guías de Interfaz Móvil**: Documenté gestos táctiles, patrones de navegación e interacciones específicas para móviles",
+			"**Documentación de Capacidad Offline**: Creé guías para acceder a documentación sin conectividad a internet",
+			"**Guías de Solución de Problemas Móvil**: Desarrollé documentación específica para móviles de solución de problemas y soporte"
+		]
+	},
+	{
+		title: "Experiencia de Usuario en Documentación Móvil",
+		icon: "experience",
+		content: [
+			"**Diseño Mobile-First de Documentación**: Prioricé usabilidad y accesibilidad de documentación móvil",
+			"**Documentación Amigable para Touch**: Diseñé interfaces de documentación optimizadas para interacción táctil y uso móvil",
+			"**Estándares de Accesibilidad Móvil**: Garanticé que toda documentación móvil cumpla con pautas WCAG de accesibilidad",
+			"**Ayuda Móvil Contextual**: Creé sistemas de documentación que proporcionan ayuda relevante basada en contexto de app móvil",
+			"**Navegación de Documentación Móvil**: Implementé sistemas de navegación intuitivos para navegación de documentación móvil"
+		]
+	},
+	{
+		title: "Características de Documentación Móvil",
+		icon: "atom",
+		content: [
+			"**Variantes de Aplicación Móvil**: Interfaces de documentación separadas para diferentes aplicaciones móviles (Hub, Conductor, Técnico)",
+			"**Contenido Específico para Móvil**: Documentación adaptada a características de apps móviles, flujos de trabajo e interacciones de usuario",
+			"**Sistema de Documentación Responsivo**: Documentación que se adapta a diferentes tamaños y orientaciones de pantalla móvil",
+			"**Integración de Búsqueda Móvil**: Funcionalidad de búsqueda optimizada para descubrimiento de documentación móvil",
+			"**Actualizaciones de Documentación Móvil**: Sistemas para mantener documentación móvil sincronizada con actualizaciones de apps",
+			"**Analytics de Uso Móvil**: Seguimiento y optimización de efectividad de documentación móvil"
+		]
+	},
+	{
+		title: "Tecnologías de Documentación Móvil",
+		icon: "technologies",
+		content: [
+			"Diseño y sistemas de layout responsivos para documentación móvil",
+			"Patrones de interfaz de usuario optimizados para touch en documentación",
+			"Sistemas de gestión y entrega de contenido específico para móviles",
+			"Frameworks de diseño responsivo para documentación cross-device",
+			"Estándares de accesibilidad móvil e implementación",
+			"Optimización de rendimiento para plataformas de documentación móvil",
+			"Detección de dispositivo y entrega adaptativa de contenido",
+			"Analytics de documentación móvil y seguimiento de usuario"
+		]
+	},
+	{
+		title: "Impacto de Documentación Móvil",
+		icon: "trending",
+		content: [
+			"La documentación móvil transformó cómo los trabajadores de campo acceden a información crítica. Los conductores y técnicos ganaron acceso instantáneo a documentación de apps móviles mientras estaban en la carretera, permitiendo resolución más rápida de problemas y uso más eficiente de apps móviles. Las interfaces de documentación optimizadas para móviles mejoraron significativamente la adopción de usuarios y redujeron los requerimientos de soporte para apps móviles."
+		]
+	}
+]
+
+## Documentación Integral para Software Empresarial de Logística
+
+Como desarrollador especializado en arquitecturas web complejas, lideré el desarrollo de la **Plataforma de Documentación y Guía de Usuario de AIMove** - una sofisticada aplicación Nuxt 4 que sirve como base de conocimientos integral para AIMove Hub, un sistema de gestión de transporte y logística de vanguardia. Este proyecto representó un pináculo en arquitectura multi-layout, entregando experiencias de documentación fluidas a través de diversos roles de usuario y variantes de aplicación.
+
 ### Mi Enfoque
-Arquitecté una aplicación Nuxt 4 de vanguardia con capacidades multi-layout avanzadas, creando un ecosistema de documentación unificado que escala a través de múltiples contextos de usuario y plataformas de aplicación.
-<div class="grid grid-cols-3 grid-rows-4 gap-8">
-<SectionCard title="Diseño de Arquitectura Multi-Layout">
-- **Sistema de Layout Dinámico**: Implementé la característica multi-layout de Nuxt 4 para servir diferentes interfaces de documentación para aplicaciones web y móviles
-- **Entrega de Contenido Basado en Roles**: Creé enrutamiento inteligente que adapta contenido basado en roles de usuario (Gerente, Operaciones, Seguridad, Finanzas, Mantenimiento)
-- **Navegación Consciente del Contexto**: Desarrollé barras laterales dinámicas que muestran secciones de documentación relevantes basadas en el contexto de aplicación actual
-- **Estrategia de Contenido Unificado**: Establecí arquitectura de información consistente en todas las variantes de documentación mientras mantenía detalles específicos de plataforma
-</SectionCard>
+He orquestado una aplicación Nuxt 4 de vanguardia con capacidades multi-layout avanzadas, creando un ecosistema de documentación unificado que escala a través de múltiples contextos de usuario y plataformas de aplicación.
 
-<SectionCard title="Implementación Técnica Avanzada">
-- **Dominio de Multi-Layout Nuxt 4**: Utilicé el sistema de layout avanzado de Nuxt 4 para crear experiencias de documentación distintas para contextos web y móviles
-- **Enrutamiento Inteligente de Contenido**: Construí lógica de enrutamiento sofisticada que sirve documentación apropiada basada en parámetros de URL y contexto de usuario
-- **Arquitectura Optimizada para Rendimiento**: Implementé carga diferida, división de código y estrategias de caching para entrega rápida de documentación
-- **SEO y Accesibilidad**: Garanticé que toda documentación sea completamente accesible y optimizada para motores de búsqueda para usuarios empresariales
-</SectionCard>
+<GenericCard
+	cards={projectCardsWeb}
+	gridColumns={3}
+	showIcons={true}
+	photo={{ src: "/assets/Guide_Web_Dark.webp", alt: "Plataforma de documentacion integral para la gestion de transporte y logistica con arquitectura multi-layout.", width: "1022px" }}
+/>
 
-<SectionCard title="Excelencia en Gestión de Contenido">
-- **Cobertura de Documentación Integral**: Creé guías detalladas cubriendo login, navegación, operaciones CRUD, análisis de dashboard y flujos de trabajo específicos de módulos
-- **Ejemplos de Código Interactivos**: Integré ejemplos prácticos con resaltado de sintaxis y funcionalidad de copiar al portapapeles
-- **Documentación Visual**: Incorporé capturas de pantalla, diagramas de flujo e ilustraciones interactivas para mejorar la comprensión
-- **Actualizaciones Regulares de Contenido**: Establecí procesos para mantener documentación sincronizada con actualizaciones de software
-</SectionCard>
-<SectionCard title="Innovación en Experiencia de Usuario">
-- **Búsqueda Contextual**: Implementé búsqueda inteligente que entiende roles de usuario y proporciona resultados relevantes
-- **Navegación de Ruta de Navegación**: Creé sistemas de navegación intuitivos que ayudan a usuarios a entender su ubicación dentro de la jerarquía de documentación
-- **Diseño Mobile-First**: Garanticé que toda documentación sea completamente responsiva y optimizada para consumo móvil
-- **Características de Progressive Web App**: Agregué capacidades offline y navegación tipo app para usuarios móviles
-</SectionCard>
-<SectionCard title="Características Clave Entregadas">
-- **Sistema de Documentación Multi-Layout**: Interfaces de documentación separadas para aplicaciones web y móviles con branding consistente
-- **Control de Acceso Basado en Roles**: Entrega inteligente de contenido basada en roles y permisos de usuario
-- **Cobertura Integral**: Guías detalladas para todos los módulos de AIMove Hub (Gerente, Operaciones, Mantenimiento, Seguridad, Finanzas)
-- **Elementos Interactivos**: Ejemplos de código, capturas de pantalla y tutoriales interactivos
-- **Soporte Multi-Idioma**: Localización completa inglés/español con cambio fluido de idioma
-- **Búsqueda Avanzada**: Funcionalidad de búsqueda consciente del contexto con filtrado y etiquetado
-- **Integración en Vivo**: Enlaces directos a aplicación AIMove Hub para aprendizaje práctico
-</SectionCard>
 
-<SectionCard title="Tecnologías Dominadas">
-- Arquitectura multi-layout Nuxt 4 y enrutamiento avanzado
-- API de composición Vue.js para gestión de estado compleja
-- Componentes Nuxt UI para sistema de diseño consistente
-- Internacionalización (i18n) para soporte multi-idioma
-- Renderizado del lado del servidor (SSR) y generación estática
-- CSS avanzado con Tailwind CSS para diseño responsivo
-- Sistemas de gestión de contenido y procesamiento markdown
-- Técnicas de optimización de rendimiento y división de código
-</SectionCard>
-<SectionCard title="Impacto & Resultados">
-La Plataforma de Guía de Usuario y Documentación de AIMove se convirtió en la base de conocimientos autorizada para usuarios de AIMove Hub, mejorando significativamente la adopción de usuarios y reduciendo tickets de soporte. La arquitectura multi-layout abordó exitosamente la complejidad de documentar un sistema empresarial multi-rol y multi-plataforma, mientras que el diseño intuitivo aseguró que usuarios pudieran encontrar y aplicar rápidamente la información que necesitaban.
-</SectionCard>
+<GenericCard
+	cards={projectCardsMobile}
+	gridColumns={2}
+	showIcons={true}
+	photo={{ src: "/assets/Guide_Mobile_Dark.webp", alt: "Plataforma de documentacion integral para la gestion de transporte y logistica con arquitectura multi-layout.", width: "1022px" }}
+/>
 
-<SectionCard title="Habilidades Demostradas">
-- **Desarrollo Avanzado Nuxt.js**: Expertise de nivel maestro en arquitectura multi-layout Nuxt 4
-- **Sistemas de Documentación Empresarial**: Diseñando bases de conocimientos integrales para productos de software complejos
-- **Estrategia de Contenido Multi-Plataforma**: Creando documentación unificada a través de aplicaciones web y móviles
-- **Arquitectura de Experiencia de Usuario**: Construyendo sistemas de navegación intuitivos para documentación a gran escala
-- **Integración de Escritura Técnica**: Combinando expertise de desarrollo con documentación clara y accionable
-- **Ingeniería de Rendimiento**: Optimizando sitios de documentación grandes para uso a escala empresarial
-- **Estrategia de Contenido**: Desarrollando arquitectura de información para sistemas de software complejos multi-rol
-- **Accesibilidad y SEO**: Garantizando que documentación sea accesible y descubrible por usuarios empresariales
-</SectionCard>
-</div>
 Este proyecto representa la intersección de desarrollo web avanzado y comunicación técnica, creando una plataforma de documentación que empodera a usuarios empresariales para aprovechar completamente software de logística complejo. Si buscas un desarrollador que pueda arquitectar aplicaciones multi-layout sofisticadas y crear sistemas de documentación integrales, [conectemos y discutamos tus necesidades de software empresarial](/es/#contact).
-
----
-
-*Este proyecto demuestra mi expertise en desarrollo avanzado Nuxt.js, arquitectura multi-layout y sistemas de documentación a escala empresarial.*
